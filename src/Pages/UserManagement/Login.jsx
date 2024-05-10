@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Components/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { Bounce } from "react-awesome-reveal";
 
 const Login = () => {
-
+    const location= useLocation()
+    console.log(location)
     const { loginUser } = useContext(AuthContext)
 
     const handleLogin = (event) => {
@@ -36,9 +38,20 @@ const Login = () => {
         setShowPassword(!showPassword)
     }
 
+    
+
     return (
         <div className="container mx-auto px-56 mt-12">
             <Toaster></Toaster>
+            {
+                location?.state ?
+                    <div className='mb-4'>
+                        <Bounce>
+                            <p className="text-amber-500 text-center text-xl">You have to Login first to proceed</p>
+                        </Bounce>
+                    </div>
+                    : <></>
+            }
             <h1 className="text-center mb-6 text-3xl text-violet-600">Login now</h1>
 
             <form className="flex flex-col items-center justify-center gap-10" onSubmit={handleLogin}>

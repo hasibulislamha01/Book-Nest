@@ -12,6 +12,7 @@ import Register from './Pages/UserManagement/Register';
 import AuthProvider from './Components/AuthProvider';
 import AllBooks from './Pages/AllBooksPage/AllBooks';
 import UpdateBook from './Pages/UpdateBookPage/UpdateBook';
+import ValidateUser from './Pages/UserManagement/ValidateUser';
 
 const router = createBrowserRouter([
   {
@@ -36,8 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/allBooks/:id",
-        loader: ({params})=>fetch(`http://localhost:5000/books/${params.id}`),
-        element: <UpdateBook></UpdateBook>
+        loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`),
+        element:
+          <ValidateUser>
+            <UpdateBook></UpdateBook>
+          </ValidateUser>
       },
     ]
   },

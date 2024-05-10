@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Components/AuthProvider";
+import { Navigate, useLocation } from "react-router-dom";
 
-const ValidateUser = () => {
+const ValidateUser = ({children}) => {
+    const location = useLocation()
     const {user} = useContext(AuthContext)
     if(user){
-        console.log('no user')
+        return children;
     }
     return (
-        <div>
-            
-        </div>
+        <Navigate to='/login' state={location.pathname}></Navigate>
     );
 };
 

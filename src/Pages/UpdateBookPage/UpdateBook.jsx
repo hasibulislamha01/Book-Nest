@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import RatingOption from "../../Components/RatingOption";
 import CategoryOpt from "../../Components/CategoryOption";
+import axios from "axios";
 
 const UpdateBook = () => {
     const updatableBook = useLoaderData()
@@ -21,6 +22,8 @@ const UpdateBook = () => {
             image,
         }
         console.log(updatedBook)
+
+        axios.patch
     } 
     return (
         <div className="container mx-auto mt-12 px-60">

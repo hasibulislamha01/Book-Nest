@@ -10,6 +10,8 @@ import Home from './HomePage/Home';
 import Login from './Pages/UserManagement/Login';
 import Register from './Pages/UserManagement/Register';
 import AuthProvider from './Components/AuthProvider';
+import AllBooks from './Pages/AllBooksPage/AllBooks';
+import UpdateBook from './Pages/UpdateBookPage/UpdateBook';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,15 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/allBooks",
+        element: <AllBooks></AllBooks>
+      },
+      {
+        path: "/allBooks/:id",
+        loader: ({params})=>fetch(`http://localhost:5000/books/${params.id}`),
+        element: <UpdateBook></UpdateBook>
       },
     ]
   },

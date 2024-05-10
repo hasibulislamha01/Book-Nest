@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input-container {
+    position: relative;
+    height: 50px;
+    width: 50%;
+}
+
+.input-container input {
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.5s;
+    font-size: 1rem;
+    padding: 0px 10px;
+}
+
+.label {
+    padding: 0px 15px;
+    position: absolute;
+    left: 0%;
+    top: 20%;
+    text-transform: uppercase;
+    pointer-events: none;
+    font-size: 1rem;
+}
+
+.input-container input:valid ~ .label,
+.input-container input:focus ~ .label {
+    color: blue ;
+    transform: translateX(10px) translateY(-20px);
+    transition: 400ms; 
+    background-color: white;
+    font-size: 0.75rem;
+    padding: 0px 5px;
+    border-left: 1px solid turquoise;
+    letter-spacing: 0.2rem;
+}
+
+#big-input{
+    width: 100%;
+}

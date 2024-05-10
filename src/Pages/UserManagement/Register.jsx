@@ -61,57 +61,52 @@ const Register = () => {
             <h1 className="text-center text-3xl mb-6">Register Here</h1>
             <form className="space-y-4" onSubmit={handleRegister}>
                 <div className="flex justify-between gap-4">
-                    <div>
-                        <label className="px-3 py-2">First Name</label>
+                    <div className="input-container">
                         <input
-                            className="input input-bordered w-full"
+                            className=""
                             type="text"
                             name="firstName"
-                            placeholder="First Name"
-
+                            required="required"
                         />
+                        <label className="label">First Name</label>
                     </div>
-                    <div>
-                        <label className="px-3 py-2">Last Name</label>
+                    <div className="input-container">
                         <input
-                            className="input input-bordered w-full"
+                            className=""
                             type="text"
                             name="lastName"
-                            placeholder="Last Name"
-
+                            required="required"
                         />
+                        <label className="label">Last Name</label>
                     </div>
                 </div>
-                <div className="w-full mx-auto">
-                    <label className="px-3 py-2">Your Photo</label>
+                <div className="mx-auto input-container" id="big-input">
                     <input
-                        className="input input-bordered w-full"
+                        className="w-full"
                         type="text"
                         name="photo"
-                        placeholder="Enter Your Photo URL"
-
+                        required="required"
                     />
+                    <label className="label">Your Photo</label>
                 </div>
                 <div className="flex justify-between gap-4">
-                    <div className="w-full">
-                        <label className="px-3 py-2">Email</label>
+                    <div className="w-full input-container">
                         <input
-                            className="input input-bordered w-full"
+                            className=""
                             type="email"
                             name="email"
-                            placeholder="Enter Your Email Address"
-
+                            required="required"
                         />
+                        <label className="label">Email</label>
                     </div>
-                    <div className="w-full relative">
-                        <label className="px-3">Password</label>
+                    <div className="w-full relative input-container">
                         <input
-                            className="input input-bordered w-full"
+                            className=""
                             type={showPassword ? 'text' : 'password'}
                             name="password"
-                            placeholder="Enter Password"
-
+                            required="required"
                         />
+                        <label className="label">Password</label>
                         <span
                             onClick={toggleShowPassword}
                             className="absolute right-5 bottom-[15px]"
@@ -126,8 +121,8 @@ const Register = () => {
                 </div>
                 <button type="submit" className="btn btn-block mt-4">Register</button>
             </form>
-            <p>Already have an account ?
-                <span className="text-purple-700">
+            <p className="mt-6 text-center">Already have an account ?
+                <span className="text-purple-700 ml-2">
                     <Link to='/login'>sign in</Link>
                 </span>
             </p>

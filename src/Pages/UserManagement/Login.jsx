@@ -37,33 +37,31 @@ const Login = () => {
     }
 
     return (
-        <div className="container mx-auto w-2/5 mt-12">
+        <div className="container mx-auto px-56 mt-12">
             <Toaster></Toaster>
-            <h1 className="text-center text-3xl text-violet-600">Login now</h1>
+            <h1 className="text-center mb-6 text-3xl text-violet-600">Login now</h1>
 
-            <form className="space-y-4" onSubmit={handleLogin}>
-                <div>
-                    <label className="px-3 py-2">Email</label>
+            <form className="flex flex-col items-center justify-center gap-10" onSubmit={handleLogin}>
+                <div className="input-container">
                     <input
-                        className="input input-bordered w-full"
+                        className=""
                         type="email"
                         name="email"
-                        placeholder="Enter Your Email Address"
-
+                        required="required"
                     />
+                    <span className="label">Email</span>
                 </div>
-                <div className="relative">
-                    <label className="px-3">Password</label>
+                <div className="relative input-container">
                     <input
-                        className="input input-bordered w-full"
+                        className=""
                         type={showPassword ? 'text' : 'password'}
                         name="password"
-                        placeholder="Enter Password"
-
+                        required="required"
                     />
+                    <span className="label">Password</span>
                     <span
                         onClick={toggleShowPassword}
-                        className="absolute right-5 bottom-[15px]"
+                        className="absolute top-[18px] right-[15px]"
                     >
                         {
                             !showPassword ?
@@ -71,18 +69,19 @@ const Login = () => {
                                 : <BsEyeSlash />
                         }
                     </span>
+                    <button type="submit" className="btn w-full mt-6">Login</button>
                 </div>
-                <button type="submit" className="btn btn-block mt-2">Login</button>
             </form>
-            <p>Do not have an account ?
+
+            <div className="mt-24 text-center flex flex-col justify-center items-center">
+                <h3>login with</h3>
+                <span className="text-2xl hover:cursor-pointer"><FcGoogle /></span>
+            </div>
+            <p className="text-center">Do not have an account ?
                 <span className="text-purple-700">
                     <Link to='/register'>sign up</Link>
                 </span>
             </p>
-            <div className="mt-8 text-center">
-                <h3>login with</h3>
-                <span className="text-3xl hover:cursor-pointer"><FcGoogle /></span>
-            </div>
         </div>
     );
 };

@@ -5,10 +5,13 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 const UpdateBook = () => {
+
     const navigate = useNavigate()
+    
     const updatableBook = useLoaderData()
     const updatableBookId = updatableBook[0]?._id;
     console.log(updatableBookId)
+    
     const handleUpdate = async (event) => {
         event.preventDefault()
         const form = event.target;

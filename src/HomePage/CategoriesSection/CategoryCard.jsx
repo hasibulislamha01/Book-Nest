@@ -11,7 +11,7 @@ const CategoryCard = ({ category }) => {
                 <h2 className="card-title text-center text-xl lg:text-2xl">{category?.category}</h2>
                 
                 <div className="">
-                    <Link to={`http://localhost:5000/books/${category?.category}`} className="btn btn-sm lg:btn-md btn-primary">View Books</Link>
+                    <Link to={`/allBooks/categories/${category?.category}`} className="btn btn-sm lg:btn-md btn-primary">View Books</Link>
                 </div>
             </div>
         </div>

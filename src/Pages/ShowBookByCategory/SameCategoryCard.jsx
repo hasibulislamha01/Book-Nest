@@ -1,12 +1,10 @@
+import { Rating } from "@mui/material";
+import { Card } from "antd";
+import Meta from "antd/es/card/Meta";
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
-import { Rating } from '@mui/material';
-import { Card } from 'antd';
-import { Link } from 'react-router-dom';
-const { Meta } = Card;
 
-
-const BookCard = ({ book }) => {
-    console.log(book)
+const SameCategoryCard = ({ book }) => {
     return (
         <Card
             hoverable
@@ -52,17 +50,17 @@ const BookCard = ({ book }) => {
 
                 <p className='font-bold'>
                     <span className='text-indigo-500 mr-2'>{book?.category}</span>
-                    by 
+                    by
                     <span className='text-teal-500 ml-2'>{book?.author}</span>
                 </p>
-                <Link to={`/allBooks/update/${book?._id}`} className='btn btn-sm bg-sky-200'>Update</Link>
+                <Link to={`/allBooks/${book?._id}`} className='btn btn-sm bg-sky-200'>Details</Link>
             </div>
         </Card>
     );
 };
 
-BookCard.propTypes = {
+SameCategoryCard.propTypes = {
     book: PropTypes.object
 }
 
-export default BookCard;
+export default SameCategoryCard;

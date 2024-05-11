@@ -16,7 +16,7 @@ const Categories = () => {
     },[])
     console.log(categories)
     return (
-        <div className="container mx-auto px-2 lg:px-0 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="container mx-auto mt-12 px-2 lg:px-0 grid grid-cols-1 md:grid-cols-2 gap-6">
             {
                 categories?.map(category=>
                     <CategoryCard

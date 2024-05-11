@@ -14,6 +14,8 @@ import AllBooks from './Pages/AllBooksPage/AllBooks';
 import UpdateBook from './Pages/UpdateBookPage/UpdateBook';
 import ValidateUser from './Pages/UserManagement/ValidateUser';
 import AddBooks from './Pages/AddBooksPage/AddBooks';
+import SameCategoryBooks from './Pages/ShowBookByCategory/SameCategoryBooks';
+import Details from './Pages/BookDetailsPage/Details';
 
 const router = createBrowserRouter([
   {
@@ -37,11 +39,19 @@ const router = createBrowserRouter([
         element: <AllBooks></AllBooks>
       },
       {
-        path: "/allBooks/:id",
+        path: "/allBooks/update/:id",
         loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`),
         element:
           <ValidateUser>
             <UpdateBook></UpdateBook>
+          </ValidateUser>
+      },
+      {
+        path: "/allBooks/:id",
+        loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`),
+        element:
+          <ValidateUser>
+            <Details></Details>
           </ValidateUser>
       },
       {
@@ -50,6 +60,11 @@ const router = createBrowserRouter([
           <ValidateUser>
             <AddBooks></AddBooks>
           </ValidateUser>
+      },
+      {
+        path: "/allBooks/categories/:category",
+        loader: ({params})=> fetch(`http://localhost:5000/books/categories/${params?.category}`),
+        element: <SameCategoryBooks></SameCategoryBooks>
       },
     ]
   },

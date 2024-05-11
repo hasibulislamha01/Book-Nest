@@ -13,6 +13,7 @@ import AuthProvider from './Components/AuthProvider';
 import AllBooks from './Pages/AllBooksPage/AllBooks';
 import UpdateBook from './Pages/UpdateBookPage/UpdateBook';
 import ValidateUser from './Pages/UserManagement/ValidateUser';
+import AddBooks from './Pages/AddBooksPage/AddBooks';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
           <ValidateUser>
             <UpdateBook></UpdateBook>
           </ValidateUser>
+      },
+      {
+        path: "/addBooks",
+        element: <AddBooks></AddBooks>
       },
     ]
   },

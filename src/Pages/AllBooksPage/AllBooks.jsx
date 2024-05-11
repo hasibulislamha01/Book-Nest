@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import BookCard from "./BookCard";
+import { Toaster } from "react-hot-toast";
 
 
 const AllBooks = () => {
@@ -20,6 +21,7 @@ const AllBooks = () => {
 
     return (
         <div className="container mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Toaster></Toaster>
             {
                 books?.map(book =>
                     <BookCard

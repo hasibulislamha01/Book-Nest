@@ -9,6 +9,7 @@ const AuthProvider = ({children}) => {
 
     const auth = getAuth(app)
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     // authentication state observer
     useEffect(()=>{
@@ -18,7 +19,7 @@ const AuthProvider = ({children}) => {
               const uid = currentUser.uid;
               console.log(uid)
               setUser(currentUser)
-              
+              setLoading(false)
             } else {
               setUser(null)
             }
@@ -27,27 +28,32 @@ const AuthProvider = ({children}) => {
 
     // Create new user with email and password
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // Login Users with email and password
     const loginUser = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // login user with google
     const loginWithGoogle = (provider) => {
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
     // login with github
     const loginWithGithub = (provider) =>{
+        setLoading(true)
         return signInWithPopup(auth, provider)
     } 
 
 
     // update a user 
     const updateUserProfile = (name, photo) =>{
+        setLoading(true)
         return updateProfile(auth.currentUser, {
             displayName: name, 
             photoURL: photo
@@ -56,6 +62,7 @@ const AuthProvider = ({children}) => {
 
     // logout user
     const logoutUser = () =>{
+        setLoading(true)
         return signOut(auth)
     }
 
@@ -69,6 +76,7 @@ const AuthProvider = ({children}) => {
         loginWithGithub,
         updateUserProfile,
         logoutUser,
+        loading,
         user,
 
     }

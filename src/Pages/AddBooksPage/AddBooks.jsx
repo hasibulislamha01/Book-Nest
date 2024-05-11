@@ -1,8 +1,11 @@
 import axios from "axios";
 import CategoryOpt from "../../Components/CategoryOption";
 import RatingOption from "../../Components/RatingOption";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const AddBooks = () => {
+    const navigate = useNavigate()
 
     const handleAddBooks = (event) => {
         event.preventDefault()
@@ -33,6 +36,8 @@ const AddBooks = () => {
         axios.post(url, bookData)
         .then(response=>{
             console.log(response.data)
+            toast.success('New Book Added')
+            navigate('/books')
         })
         .catch(error=>{
             console.error(error)

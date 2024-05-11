@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Components/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
@@ -8,6 +8,7 @@ import { Bounce } from "react-awesome-reveal";
 
 const Login = () => {
     const location= useLocation()
+    const navigate = useNavigate()
     console.log(location)
     const { loginUser } = useContext(AuthContext)
 
@@ -24,6 +25,11 @@ const Login = () => {
             .then((result) => {
                 console.log(result.user)
                 toast.success('You have successfully Logged in')
+                if(location?.state){
+                    navigate(location.state)
+                }else{
+                    navigate('/')
+                }
             })
             .catch((error) => {
                 console.error(error.message)

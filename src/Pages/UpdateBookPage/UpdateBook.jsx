@@ -1,12 +1,15 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import RatingOption from "../../Components/RatingOption";
 import CategoryOpt from "../../Components/CategoryOption";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const UpdateBook = () => {
+    const navigate = useNavigate()
     const updatableBook = useLoaderData()
-    console.log(updatableBook)
-    const handleUpdate = (event) => {
+    const updatableBookId = updatableBook[0]?._id;
+    console.log(updatableBookId)
+    const handleUpdate = async (event) => {
         event.preventDefault()
         const form = event.target;
         const name = form.bookName.value;
@@ -23,10 +26,23 @@ const UpdateBook = () => {
         }
         console.log(updatedBook)
 
-        axios.patch
-    } 
+        const url = `http://localhost:5000/books/${updatableBookId}`;
+
+        axios.patch(url, updatedBook)
+            .then(response => {
+                console.log('data updated Successfully', response.data)
+                toast.success('Data updated Successfully')
+                navigate('/books')
+            })
+            .catch(error => {
+                console.error('error while updating data', error)
+                toast.error('error.message')
+            })
+
+    }
     return (
         <div className="container mx-auto mt-12 px-60">
+            <Toaster></Toaster>
             <form onSubmit={handleUpdate} className="space-y-6">
                 <div className="flex justify-between items-center gap-5">
                     <div className="input-container">

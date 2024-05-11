@@ -1,5 +1,6 @@
 import { Rating } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
+import BorrowModal from "../../Components/BorrowModal";
 
 const Details = () => {
     const data = useLoaderData()
@@ -22,7 +23,7 @@ const Details = () => {
                         {book?.author}
                     </p>
                     <p>
-                        {book?.rating >= 4 ?
+                        {book?.rating > 4 ?
                             <span className="mt-2 badge bg-red-200 text-red-600 font-semibold p-3">Top Rated</span>
                             : <></>
                         }
@@ -45,7 +46,7 @@ const Details = () => {
                 </div>
                 <div className="flex justify-center items-center gap-6">
                     <button className="btn bg-purple-100"> Back to home </button>
-                    <button className="btn bg-amber-100"> Borrow </button>
+                    <BorrowModal book={book?.name}></BorrowModal>
                     <button className="btn bg-violet-100"> Read Sample </button>
                 </div>
             </div>

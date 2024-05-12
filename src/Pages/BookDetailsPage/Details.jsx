@@ -1,6 +1,6 @@
 import { Rating } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
-import BorrowModal from "../../Components/BorrowModal";
+import NestedModal from "../../Components/MuiNestedModal";
 
 const Details = () => {
     const data = useLoaderData()
@@ -46,7 +46,8 @@ const Details = () => {
                 </div>
                 <div className="flex justify-center items-center gap-6">
                     <button className="btn bg-purple-100"> Back to home </button>
-                    <BorrowModal book={book?.name}></BorrowModal>
+                    {/* <BorrowModal bookName={book?.name} bookId={book?._id} quantity={book?.quantity}></BorrowModal> */}
+                    <NestedModal bookName={book?.name} bookId={book?._id} quantity={book?.quantity}></NestedModal>
                     <button className="btn bg-violet-100"> Read Sample </button>
                 </div>
             </div>

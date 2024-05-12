@@ -67,3 +67,7 @@
 #big-height{
     height: 100%;
 }
+
+.custom-swal-container{
+    z-index: 9999;
+}

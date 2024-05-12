@@ -1,13 +1,41 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import { AuthContext } from './AuthProvider';
 import { useContext } from "react";
-import { AuthContext } from "./AuthProvider";
-import PropTypes from 'prop-types'
-import axios from "axios";
-import Swal from "sweetalert2";
-import ExperimentModal from "./ExperimentModal";
+import axios from 'axios';
+import Swal from 'sweetalert2';
+// import PropTypes from 'prop-types'
 
-const BorrowModal = ({ bookName, bookId, quantity }) => {
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 800,
+    bgcolor: 'background.paper',
+    borderRadius: 5,
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+};
+
+
+
+const NestedModal = ({ bookName, bookId, quantity }) => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const { user } = useContext(AuthContext)
-    console.log(bookName, bookId, quantity)
+    console.log(bookName, bookId, typeof quantity)
 
     const handleBorrow = event => {
         event.preventDefault()
@@ -32,7 +60,10 @@ const BorrowModal = ({ bookName, bookId, quantity }) => {
                         icon: "success",
                         title: "Success",
                         text: "You borrowed the book",
-                        footer: '<a href="#">Why do I have this issue?</a>'
+                        footer: '<a href="#">Why do I have this issue?</a>',
+                        customClass: {
+                            container: 'custom-swal-container'
+                        }
                     });
                 })
                 .catch(error => {
@@ -55,14 +86,19 @@ const BorrowModal = ({ bookName, bookId, quantity }) => {
         }
 
     }
+
     return (
         <div>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <button className={`btn btn-block  ${quantity === 0 ? 'disabled' : 'active'}`} onClick={() => document.getElementById('my_modal_4').showModal()}>Borrow</button>
-            <dialog  id="my_modal_4" className="modal">
-                <div className="modal-box lg:w-11/12 max-w-5xl">
-                    <h3 className="font-bold text-lg text-red-300">Please fill the form to Continue</h3>
-                    <form onSubmit={handleBorrow} className="mt-12 flex flex-col items-center justify-between gap-4  border border-red-400">
+            <Button onClick={handleOpen}>Open modal</Button>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="parent-modal-title"
+                aria-describedby="parent-modal-description"
+            >
+                <Box sx={{ ...style, width: 800 }}>
+                    <h2 id="parent-modal-title" className='text-center font-bold text-xl'>Please fill the form to continue</h2>
+                    <form onSubmit={handleBorrow} className="mt-12 flex flex-col items-center justify-between gap-4 ">
 
                         <div>
                             <input
@@ -84,7 +120,7 @@ const BorrowModal = ({ bookName, bookId, quantity }) => {
                         </div>
 
 
-                        <label className="form-control w-1/4 mx-auto mt-4 relative">
+                        <label className="form-control w-[220px] mx-auto mt-4 relative">
                             <span className="label-text absolute left-[5%] bottom-[99%]">Pick a date of return</span>
                             <input
                                 type="date"
@@ -100,20 +136,18 @@ const BorrowModal = ({ bookName, bookId, quantity }) => {
                             <button type="submit" className={`btn bg-teal-400`}>Borrow</button>
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
-                                <button className="btn bg-red-400">Cancel</button>
+                                <button onClick={handleClose} className="btn bg-red-400">Cancel</button>
                             </form>
                         </div>
-                        <ExperimentModal></ExperimentModal>
+                        {/* <ExperimentModal></ExperimentModal> */}
                     </form>
-
-                </div>
-            </dialog>
+                    {/* <ChildModal /> */}
+                </Box>
+            </Modal>
         </div>
     );
-};
-
-BorrowModal.propTypes = {
-    book: PropTypes.any
 }
 
-export default BorrowModal;
+
+
+export default NestedModal

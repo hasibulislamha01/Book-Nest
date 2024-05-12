@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 
 const SameCategoryCard = ({ book }) => {
+    console.log(book)
     return (
         <Card
             hoverable

@@ -1,6 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.montserrat{
+    font-family: "Montserrat", sans-serif;
+}
+
+.sans{
+    font-family: "Open Sans", sans-serif;
+}
+
+.gothic{
+    font-family: "Nanum Gothic Coding", monospace;
+}
+
+.nunito{
+    font-family: "Nunito", sans-serif;
+}
+
+.mono {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
 
 .input-container {
     position: relative;
@@ -95,10 +124,15 @@
     left: 0;
     background-color: aliceblue;
     opacity: 70%;
-    /* transition: padding 2s */
+    transition: 2s
 }
 
-.translateRight{
-    /* transform: translateX(); */
-    /* transition: 2s; */
+.translateleft{
+    transform: translateY(100px);
+    transition: 2s;
+}
+
+.slidingNav{
+    transform: translate(100px);
+    transition: 2s;
 }

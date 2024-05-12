@@ -28,19 +28,20 @@ const Navbar = () => {
     const rightNav = document.getElementById('rightNav')
     window.onscroll = function(){
         if(window.pageYOffset >= menu.offsetTop){
-            rightNav.classList.add('hidden')
-            navbar.classList.add("navSticky")
             middleNav.classList.remove('navbar-center')
-            middleNav.style.transition= '2s'
-            middleNav.classList.add('navbar-end translateRight')
             rightNav.classList.remove('navbar-end')
+            navbar.classList.add("navSticky")
+            rightNav.classList.add('hidden')
+            middleNav.classList.add('slidingNav')
+            middleNav.style.transition= '2s'
             // rightNav.style.transition= '2s'
         } else {
             // rightNav.style.transition= '2s'
             navbar.classList.remove('navSticky')
-            middleNav.classList.add('navbar-center')
-            middleNav.classList.remove('navbar-end')
+            middleNav.classList.remove('slidingNav')
             rightNav.classList.remove('hidden')
+            middleNav.classList.add('navbar-center translateleft')
+            // middleNav.style.transition= '2s'
             rightNav.classList.add('navbar-end')
         }
     }
@@ -54,7 +55,7 @@ const Navbar = () => {
 
         </>
     return (
-        <div id="navContainer" className="navContainer  w-full z-10">
+        <div id="navContainer" className="navContainer  w-full z-10 mono font-bold">
             <div className="navbar container mx-auto">
                 <Toaster></Toaster>
                 <div className="navbar-start">
@@ -68,7 +69,7 @@ const Navbar = () => {
                     </div>
                     <a className="btn btn-ghost text-xl">BookNest</a>
                 </div>
-                <div id="centerNav" className="navbar-center hidden lg:flex">
+                <div id="centerNav" className="navbar-center lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg font-medium space-x-5" id="menuOptions">
                         {navigationOptions}
                     </ul>

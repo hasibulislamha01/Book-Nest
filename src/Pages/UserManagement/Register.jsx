@@ -28,8 +28,8 @@ const Register = () => {
                 
                 // Updating the user with userName and user photo
                 updateUserProfile(userName, userPhoto)
-                .then((result) => {
-                    console.log('Updated user: ',result.user)
+                .then(() => {
+                    console.log('Updated user successfully')
                   }).catch((error) => {
                     console.error("Updated failure: ",error.message)
                   });

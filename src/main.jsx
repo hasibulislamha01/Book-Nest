@@ -16,6 +16,7 @@ import ValidateUser from './Pages/UserManagement/ValidateUser';
 import AddBooks from './Pages/AddBooksPage/AddBooks';
 import SameCategoryBooks from './Pages/ShowBookByCategory/SameCategoryBooks';
 import Details from './Pages/BookDetailsPage/Details';
+import UpdateProfile from './Pages/UserManagement/UpdateProfile';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/updateProfile",
+        element: <UpdateProfile></UpdateProfile>
       },
       {
         path: "/allBooks",

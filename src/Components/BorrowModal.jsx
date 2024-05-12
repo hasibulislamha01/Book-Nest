@@ -8,9 +8,10 @@ const BorrowModal = ({ book }) => {
     const handleBorrow = event => {
         event.preventDefault()
         const form = event.target;
+        const borrowerName = form.name.value;
         const borrowerEmail = form.email.value;
         const returnDate = form.date.value;
-        const borrowerData = { borrowerEmail, returnDate, book }
+        const borrowerData = { borrowerName, borrowerEmail, returnDate, book }
         console.log(borrowerData)
     }
     return (
@@ -22,6 +23,15 @@ const BorrowModal = ({ book }) => {
                     <h3 className="font-bold text-lg text-red-300">Please fill the form to Continue</h3>
                     <form onSubmit={handleBorrow} className="mt-12 flex flex-col items-center justify-between gap-4">
 
+                        <div>
+                            <input
+                                className="w-full input input-bordered"
+                                type="text"
+                                name="name"
+                                defaultValue={user?.displayName}
+                                disabled
+                            />
+                        </div>
                         <div>
                             <input
                                 className="w-full input input-bordered"

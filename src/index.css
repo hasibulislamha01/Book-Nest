@@ -18,12 +18,14 @@
     outline: none;
     height: 3rem;
     width: 100%;
-    border: 1px solid;
+    border: 1px solid #ffffff40;
     border-radius: 5px;
     font-size: 1rem;
     transition: 0.5s;
     font-size: 1rem;
     padding: 0px 10px;
+    background-color: #1d2b3a;
+    color: whitesmoke;
 }
 .input-container textarea {
     outline: none;
@@ -45,21 +47,36 @@
     text-transform: uppercase;
     pointer-events: none;
     font-size: 1rem;
+    color: #ffffff40;
 }
 
 .input-container textarea:valid ~ .label,
 .input-container textarea:focus ~ .label,
 .input-container input:valid ~ .label,
 .input-container input:focus ~ .label {
-    color: blue ;
+    color: #00dfc4 ;
     transform: translateX(10px) translateY(-20px);
     transition: 400ms; 
-    background-color: white;
+    background-color: #1d2b3a;
     font-size: 0.75rem;
     padding: 0px 5px;
-    border-left: 1px solid turquoise;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
     letter-spacing: 0.2rem;
+    font-weight: 500;
 }
+
+.input-container input:valid ,
+.input-container input:focus {
+    border: 1px solid #00dfc4;
+    
+}
+
+/* .input-container:nth-child(2) input:valid ~ .label ,
+.input-container:nth-child(2) input:focus ~ .label{
+    background-color: #00dfc4;
+    color: #1d2b3a;
+} */
 
 #big-input{
     width: 100%;
@@ -70,4 +87,18 @@
 
 .custom-swal-container{
     z-index: 9999;
+}
+
+.navSticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: aliceblue;
+    opacity: 70%;
+    /* transition: padding 2s */
+}
+
+.translateRight{
+    /* transform: translateX(); */
+    /* transition: 2s; */
 }

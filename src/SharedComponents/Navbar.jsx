@@ -20,16 +20,41 @@ const Navbar = () => {
             toast.error('user is not Authenticated')
         }
     }
+
+    
+    const navbar = document.getElementById('navContainer')
+    const menu = document.getElementById('menuOptions')
+    const middleNav = document.getElementById('centerNav')
+    const rightNav = document.getElementById('rightNav')
+    window.onscroll = function(){
+        if(window.pageYOffset >= menu.offsetTop){
+            rightNav.classList.add('hidden')
+            navbar.classList.add("navSticky")
+            middleNav.classList.remove('navbar-center')
+            middleNav.style.transition= '2s'
+            middleNav.classList.add('navbar-end translateRight')
+            rightNav.classList.remove('navbar-end')
+            // rightNav.style.transition= '2s'
+        } else {
+            // rightNav.style.transition= '2s'
+            navbar.classList.remove('navSticky')
+            middleNav.classList.add('navbar-center')
+            middleNav.classList.remove('navbar-end')
+            rightNav.classList.remove('hidden')
+            rightNav.classList.add('navbar-end')
+        }
+    }
+
     const navigationOptions =
         <>
             <NavLink to='/' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>Home</NavLink>
             <NavLink to='/allBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>All Book</NavLink>
             <NavLink to='/addBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>Add Book</NavLink>
-            <NavLink to='/borrowedBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>Borrowed Book</NavLink>
+            <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>Borrowed Book</NavLink>
 
         </>
     return (
-        <div className="bg-gray-500 z-10">
+        <div id="navContainer" className="navContainer  w-full z-10">
             <div className="navbar container mx-auto">
                 <Toaster></Toaster>
                 <div className="navbar-start">
@@ -43,12 +68,12 @@ const Navbar = () => {
                     </div>
                     <a className="btn btn-ghost text-xl">BookNest</a>
                 </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 text-lg font-medium space-x-5">
+                <div id="centerNav" className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1 text-lg font-medium space-x-5" id="menuOptions">
                         {navigationOptions}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div id="rightNav" className="navbar-end">
                     <Drawer></Drawer>
                     {
                         user ?

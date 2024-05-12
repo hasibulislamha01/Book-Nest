@@ -25,7 +25,7 @@ const style = {
 
 
 
-const NestedModal = ({ bookName, bookId, quantity }) => {
+const NestedModal = ({ bookName, bookId, quantity, image }) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -43,11 +43,19 @@ const NestedModal = ({ bookName, bookId, quantity }) => {
         const borrowerName = form.name.value;
         const borrowerEmail = form.email.value;
         const returnDate = form.date.value;
-        const borrowerData = { borrowerName, borrowerEmail, returnDate, bookName }
+        const borrowerData = { borrowerName, borrowerEmail, returnDate, bookName, image }
         console.log(borrowerData)
 
 
-        // send borrower data to database
+        // send borrower data to borrowed collection of database
+        const sendBorrowedBookToDatabase = () => {
+            axios.post('http://localhost:5000/borrowedBooks', borrowerData)
+                .then(response => {
+                    console.log(response.data)
+                }).catch(error => {
+                    console.error(error)
+                })
+        }
 
 
         // update book information of the borrowed book
@@ -73,6 +81,7 @@ const NestedModal = ({ bookName, bookId, quantity }) => {
 
         if (quantity > 0) {
             confirmBorrowBook()
+            sendBorrowedBookToDatabase()
         } else {
             Swal.fire({
                 icon: "error",
@@ -89,7 +98,17 @@ const NestedModal = ({ bookName, bookId, quantity }) => {
 
     return (
         <div>
-            <Button onClick={handleOpen}>Open modal</Button>
+            <Button
+                style={{
+                    textTransform: 'capitalize',
+                    fontWeight: '600',
+                    backgroundColor: '#6ee7b7',
+                    color: 'black'
+                }}
+                onClick={handleOpen}
+                className='btn'
+            >Borrow this Book
+            </Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -139,9 +158,9 @@ const NestedModal = ({ bookName, bookId, quantity }) => {
                                 <button onClick={handleClose} className="btn bg-red-400">Cancel</button>
                             </form>
                         </div>
-                        {/* <ExperimentModal></ExperimentModal> */}
+
                     </form>
-                    {/* <ChildModal /> */}
+
                 </Box>
             </Modal>
         </div>

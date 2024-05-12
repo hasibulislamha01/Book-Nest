@@ -8,7 +8,7 @@ const Details = () => {
     console.log(book)
 
     return (
-        <div className="mt-12 flex flex-col md:flex-row justify-between gap-10 md:gap-0 px-2 lg:px-0 ">
+        <div className="container mx-auto mt-12 flex flex-col md:flex-row justify-between gap-10 md:gap-0 px-2 lg:px-0 ">
             <div className="w-full mx-auto md:w-2/5 border border-red-400">
                 <img className="w-full min-h-[350px] max-h-screen" src={book?.image} alt="" />
             </div>
@@ -47,7 +47,7 @@ const Details = () => {
                 <div className="flex justify-center items-center gap-6">
                     <button className="btn bg-purple-100"> Back to home </button>
                     {/* <BorrowModal bookName={book?.name} bookId={book?._id} quantity={book?.quantity}></BorrowModal> */}
-                    <NestedModal bookName={book?.name} bookId={book?._id} quantity={book?.quantity}></NestedModal>
+                    <NestedModal bookName={book?.name} bookId={book?._id} quantity={book?.quantity} image={book?.image}></NestedModal>
                     <button className="btn bg-violet-100"> Read Sample </button>
                 </div>
             </div>

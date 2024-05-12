@@ -17,6 +17,7 @@ import AddBooks from './Pages/AddBooksPage/AddBooks';
 import SameCategoryBooks from './Pages/ShowBookByCategory/SameCategoryBooks';
 import Details from './Pages/BookDetailsPage/Details';
 import UpdateProfile from './Pages/UserManagement/UpdateProfile';
+import BorrowedBooks from './Pages/BorrowedBooksPage/BorrowedBooks';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,14 @@ const router = createBrowserRouter([
         element:
           <ValidateUser>
             <AddBooks></AddBooks>
+          </ValidateUser>
+      },
+      {
+        path: "/borrowedBooks/:email",
+        loader: ({params})=>fetch(`http://localhost:5000/borrowedBooks/${params.email}`),
+        element:
+          <ValidateUser>
+            <BorrowedBooks></BorrowedBooks>
           </ValidateUser>
       },
       {

@@ -16,7 +16,7 @@ const Categories = () => {
     },[])
     console.log(categories)
     return (
-        <div className="container mx-auto mt-12 px-2 lg:px-0 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div data-aos="fade-up"  data-aos-duration="3000" className="container mx-auto mt-12 px-2 lg:px-0 grid grid-cols-1 md:grid-cols-2 gap-6">
             {
                 categories?.map(category=>
                     <CategoryCard

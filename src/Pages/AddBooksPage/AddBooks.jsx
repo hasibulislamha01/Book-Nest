@@ -44,7 +44,7 @@ const AddBooks = () => {
         })
     }
     return (
-        <div className="container mx-auto mt-12 lg:px-60">
+        <div className="w-full pt-12 lg:px-60 ">
             <form onSubmit={handleAddBooks} className="space-y-6">
                 <div className="flex flex-col lg:flex-row justify-between items-center gap-5">
                     <div className="input-container">

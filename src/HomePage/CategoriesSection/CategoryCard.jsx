@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
+// Import AOS library
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
+
+// Initialize AOS
+AOS.init();
 
 const CategoryCard = ({ category }) => {
     // console.log(category)
     // const {image, category} = category
     return (
-        <div className="card glass card-side shadow-xl rounded-lg h-40 lg:h-56">
+        <div data-aos="flip-right" data-aos-duration="1000"  className="card glass card-side shadow-xl rounded-lg h-40 lg:h-56">
             <figure><img className="h-full w-48 lg:w-80 object-cover" src={category?.image} alt="Movie" /></figure>
             <div className="mx-auto flex flex-col items-center justify-evenly">
                 <h2 className="card-title text-center text-xl lg:text-2xl">{category?.category}</h2>

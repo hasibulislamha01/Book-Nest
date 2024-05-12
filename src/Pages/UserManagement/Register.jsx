@@ -56,7 +56,7 @@ const Register = () => {
     }
 
     return (
-        <div className="container mx-auto mt-12 px-48">
+        <div className="pt-12 px-80 bg-[#1d2b3a]">
             <Toaster></Toaster>
             <h1 className="text-center text-3xl mb-6">Register Here</h1>
             <form className="space-y-4" onSubmit={handleRegister}>

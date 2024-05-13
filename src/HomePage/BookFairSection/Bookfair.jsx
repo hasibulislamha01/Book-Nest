@@ -4,7 +4,7 @@ const Bookfair = () => {
     return (
         <div className='mt-24 lg:mt-40 '>
             <h1 className='text-center mb-12 text-3xl font-bold'>Books Books Books !!!</h1>
-            <div className='grid grid-cols-2'>
+            <div className='mx-2 grid grid-cols-1 gap-5 md:grid-cols-2'>
                 <div className='flex flex-col justify-center space-y-6'>
                     <h1 className='text-3xl'>
                         Join the <br />

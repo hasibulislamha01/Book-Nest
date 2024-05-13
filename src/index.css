@@ -128,11 +128,11 @@
 }
 
 .translateleft{
-    transform: translateY(100px);
+    transform: translatex(200%);
     transition: 2s;
 }
 
-.slidingNav{
-    transform: translate(100px);
+.translateRight{
+    transform: translate(320px);
     transition: 2s;
 }

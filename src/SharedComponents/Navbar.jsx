@@ -6,7 +6,7 @@ import Drawer from "../Components/Drawer";
 
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext)
-
+    console.log('user image',user?.photoURL)
     const handleLogout = () => {
         if (user) {
             logoutUser()
@@ -21,29 +21,29 @@ const Navbar = () => {
         }
     }
 
-    
+
     const navbar = document.getElementById('navContainer')
     const menu = document.getElementById('menuOptions')
     const middleNav = document.getElementById('centerNav')
     const rightNav = document.getElementById('rightNav')
-    window.onscroll = function(){
-        if(window.pageYOffset >= menu.offsetTop){
-            middleNav.classList.remove('navbar-center')
-            rightNav.classList.remove('navbar-end')
-            navbar.classList.add("navSticky")
-            rightNav.classList.add('hidden')
-            middleNav.classList.add('slidingNav')
-            middleNav.style.transition= '2s'
-            // rightNav.style.transition= '2s'
-        } else {
-            // rightNav.style.transition= '2s'
-            navbar.classList.remove('navSticky')
-            middleNav.classList.remove('slidingNav')
-            rightNav.classList.remove('hidden')
-            middleNav.classList.add('navbar-center translateleft')
-            // middleNav.style.transition= '2s'
-            rightNav.classList.add('navbar-end')
-        }
+    window.onscroll = function () {
+        // if(window.pageYOffset >= menu.offsetTop){
+        //     // middleNav.classList.remove('navbar-center')
+        //     // rightNav.classList.remove('navbar-end')
+        //     navbar.classList.add("navSticky")
+        //     rightNav.classList.add('translateRight')
+        //     middleNav.classList.add('translateRight')
+        //     // middleNav.style.transition= '2s'
+        //     // rightNav.style.transition= '2s'
+        // } else {
+        //     // rightNav.style.transition= '2s'
+        //     navbar.classList.remove('navSticky')
+        //     middleNav.classList.remove('translateRight')
+        //     rightNav.classList.remove('translateRight')
+        //     middleNav.classList.add('navbar-center , translateleft')
+        //     // // middleNav.style.transition= '2s'
+        //     rightNav.classList.add('navbar-end, translateleft')
+        // }
     }
 
     const navigationOptions =
@@ -55,7 +55,7 @@ const Navbar = () => {
 
         </>
     return (
-        <div id="navContainer" className="navContainer  w-full z-10 mono font-bold">
+        <div id="navContainer" className=" w-full z-10 mono font-bold">
             <div className="navbar container mx-auto">
                 <Toaster></Toaster>
                 <div className="navbar-start">
@@ -69,21 +69,14 @@ const Navbar = () => {
                     </div>
                     <a className="btn btn-ghost text-xl">BookNest</a>
                 </div>
-                <div id="centerNav" className="navbar-center lg:flex">
+                <div id="centerNav" className="navbar-center lg:flex border border-red-500">
                     <ul className="menu menu-horizontal px-1 text-lg font-medium space-x-5" id="menuOptions">
                         {navigationOptions}
                     </ul>
                 </div>
-                <div id="rightNav" className="navbar-end">
+                <div id="rightNav" className="navbar-end border border-red-500">
                     <Drawer></Drawer>
-                    {
-                        user ?
-                            <div className="flex items-center">
-                                <img className="z-50 h-12 w-12 rounded-full" src={user?.imageURL} alt="" />
-                                <button onClick={handleLogout} className="btn btn-ghost">Logout</button>
-                            </div>
-                            : <Link to='/login' className="btn btn-ghost">Login</Link>
-                    }
+                    
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ const BorrowedBooks = () => {
     const borrowedBooks = useLoaderData()
     console.log(borrowedBooks)
     return (
-        <div className="pt-12">
+        <div className="pt-28">
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
                 {
                     borrowedBooks.map(book =>

@@ -5,12 +5,13 @@ import { AuthContext } from "../../Components/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { Bounce } from "react-awesome-reveal";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
     const location= useLocation()
     const navigate = useNavigate()
     console.log(location)
-    const { loginUser } = useContext(AuthContext)
+    const { loginUser, loginWithGoogle } = useContext(AuthContext)
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -42,6 +43,25 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const toggleShowPassword = () => {
         setShowPassword(!showPassword)
+    }
+
+
+    // google login
+    const googleProvider = new GoogleAuthProvider()
+    const handleGoogleLogin = () => {
+        loginWithGoogle(googleProvider)
+        .then(result=>{
+            console.log(result.user)
+            toast.success('Login Successful')
+            if(location?.state){
+                navigate(location.state)
+            }else{
+                navigate('/')
+            }
+        }) .catch ( error => {
+            console.error( error. message)
+            toast.error(error.message)
+        }) 
     }
 
     
@@ -94,7 +114,7 @@ const Login = () => {
 
             <div className="mt-24 text-center flex flex-col justify-center items-center">
                 <h3>login with</h3>
-                <span className="text-2xl hover:cursor-pointer"><FcGoogle /></span>
+                <span onClick={handleGoogleLogin} className="text-2xl hover:cursor-pointer"><FcGoogle /></span>
             </div>
             <p className="text-center">Do not have an account ?
                 <span className="text-purple-700">

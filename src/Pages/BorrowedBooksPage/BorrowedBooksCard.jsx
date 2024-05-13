@@ -1,5 +1,6 @@
 import axios from "axios";
 import toast from "react-hot-toast";
+import PropTypes from 'prop-types'
 
 const BorrowedBooksCard = ({ book }) => {
     console.log(book)
@@ -34,5 +35,9 @@ const BorrowedBooksCard = ({ book }) => {
         </div>
     );
 };
+
+BorrowedBooksCard.propTypes = {
+    book: PropTypes.object
+}
 
 export default BorrowedBooksCard;

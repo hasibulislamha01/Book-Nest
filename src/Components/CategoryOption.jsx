@@ -1,4 +1,4 @@
-import Select, { defaultTheme } from 'react-select'
+import Select from 'react-select'
 
 const CategoryOpt = () => {
 

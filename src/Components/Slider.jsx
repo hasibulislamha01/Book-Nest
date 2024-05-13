@@ -1,5 +1,4 @@
 import { Carousel } from "antd";
-import TypeWriter from "./Typewriter";
 import { Typewriter } from "react-simple-typewriter";
 const contentStyle = {
     height: '160px',

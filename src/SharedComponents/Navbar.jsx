@@ -1,31 +1,19 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Components/AuthProvider";
-import toast, { Toaster } from "react-hot-toast";
+import  { Toaster } from "react-hot-toast";
 import Drawer from "../Components/Drawer";
 
 const Navbar = () => {
-    const { user, logoutUser } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     console.log('user image', user?.photoURL)
-    const handleLogout = () => {
-        if (user) {
-            logoutUser()
-                .then(() => {
-                    toast.success('Logout Successful')
-                })
-                .catch((error) => {
-                    toast.error(error.message)
-                })
-        } else {
-            toast.error('user is not Authenticated')
-        }
-    }
+    
 
 
     const navbar = document.getElementById('navContainer')
     // const menu = document.getElementById('menuOptions')
     const middleNav = document.getElementById('centerNav')
-    const rightNav = document.getElementById('rightNav')
+    // const rightNav = document.getElementById('rightNav')
     window.addEventListener('scroll',
         function () {
             if (window.pageYOffset >= middleNav.offsetTop) {

@@ -1,4 +1,5 @@
 import Slider from "../Components/Slider";
+import Bookfair from "./BookFairSection/Bookfair";
 import Categories from "./CategoriesSection/Categories";
 
 const Home = () => {
@@ -7,7 +8,7 @@ const Home = () => {
             <Slider></Slider>
             
             <div className="container mx-auto">
-                
+                <Bookfair></Bookfair>
                 <Categories></Categories>
             </div>
         </div>

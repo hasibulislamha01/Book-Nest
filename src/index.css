@@ -152,12 +152,12 @@
 
 .translateLeft {
     transform: translateX(-220px);
-    transition: transform 2s; /* Apply transition to transform */
+    transition: transform 2s;
 }
 
 .translateRight {
-    transform: translateX(50%);
-    transition: transform 2s; /* Apply transition to transform */
+    transform: translateX(41%);
+    transition: transform 2s; 
 }
 
 .dummy-class{

@@ -1,19 +1,20 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Components/AuthProvider";
-import  { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import Drawer from "../Components/Drawer";
 
 const Navbar = () => {
     const { user } = useContext(AuthContext)
     console.log('user image', user?.photoURL)
-    
+
 
 
     const navbar = document.getElementById('navContainer')
-    // const menu = document.getElementById('menuOptions')
     const middleNav = document.getElementById('centerNav')
-    // const rightNav = document.getElementById('rightNav')
+
+
+    
     window.addEventListener('scroll',
         function () {
             if (window.pageYOffset >= middleNav.offsetTop) {
@@ -23,13 +24,13 @@ const Navbar = () => {
                 // rightNav.style.transition= '2s'
                 navbar.classList.remove('navSticky')
                 middleNav.classList.remove('translateRight')
-                
+
             }
-            
-            const newNavHeight = window.pageYOffset > 100 ? '50px' : '55px';
-            navbar.style.height= newNavHeight;
+
         }
     )
+
+    
 
 
     const navigationOptions =
@@ -42,9 +43,9 @@ const Navbar = () => {
         </>
     return (
         <div id="navContainer" className="h-14 w-full z-10 mono font-bold bg-slate-100 opacity-60 fixed top-0">
-            <div className="navbar container mx-auto min-w-12  ">
-                <Toaster></Toaster>
-                <div className="navbar-start">
+            <div className="navbar container mx-auto min-w-12  flex justify-between">
+
+                <div id="leftNav" className="navbar-start w-[140px]">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -55,14 +56,14 @@ const Navbar = () => {
                     </div>
                     <a className="btn btn-ghost text-xl">BookNest</a>
                 </div>
-                <div id="centerNav" className="navbar-center lg:flex dummy-class" >
+                <div id="centerNav" className=" navbar-center lg:flex dummy-class" >
                     <ul className="menu menu-horizontal px-1 text-lg font-medium space-x-5 hidden md:inline-flex" >
                         {navigationOptions}
                     </ul>
                 </div>
-                <div id="rightNav" className="navbar-end h-auto">
+                <div id="rightNav" className="navbar-end w-[90px] h-auto ">
                     <Drawer></Drawer>
-
+                    <Toaster></Toaster>
                 </div>
             </div>
         </div>

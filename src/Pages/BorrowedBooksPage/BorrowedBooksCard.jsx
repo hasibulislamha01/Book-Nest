@@ -19,6 +19,7 @@ const BorrowedBooksCard = ({ book }) => {
             })
 
             window.location.reload()
+            toast.success('Thanks For Retuning the book')
         }) .catch(error => {
             console.error(error.message)
         })

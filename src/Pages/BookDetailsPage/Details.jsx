@@ -8,11 +8,11 @@ const Details = () => {
     console.log(book)
 
     return (
-        <div className="container mx-auto mt-12 flex flex-col md:flex-row justify-between gap-10 md:gap-0 px-2 lg:px-0 ">
-            <div className="w-full mx-auto md:w-2/5 border border-red-400">
+        <div className="container mx-auto pt-20 flex flex-col md:flex-row justify-between gap-10 md:gap-0 px-2 lg:px-0 ">
+            <div className="w-full mx-auto md:w-2/5 ">
                 <img className="w-full min-h-[350px] max-h-screen" src={book?.image} alt="" />
             </div>
-            <div className="text-center border border-red-400 w-full flex flex-col justify-evenly">
+            <div className="text-center w-full flex flex-col justify-evenly">
                 <div className="">
                     <h1 className="text-3xl font-bold">
                         {book?.name}

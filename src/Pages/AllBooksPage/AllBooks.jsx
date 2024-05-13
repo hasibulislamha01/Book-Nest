@@ -28,7 +28,7 @@ const AllBooks = () => {
 
     return (
         <div className="container mx-auto pt-20 ">
-            <div className="mb-6 flex items-center justify-between gap-4">
+            <div className="mb-6 flex items-center justify-center gap-4">
                 <FilterDropDown showFilteredData={showFilteredData} books={books}></FilterDropDown>
                 <h1 className="text-center text-3xl">
                     Showing

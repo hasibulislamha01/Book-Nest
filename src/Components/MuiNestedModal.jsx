@@ -73,6 +73,7 @@ const NestedModal = ({ bookName, bookId, quantity, image, bookCategory }) => {
                             container: 'custom-swal-container'
                         }
                     });
+                    window.location.reload()
                 })
                 .catch(error => {
                     console.error(error)

@@ -1,4 +1,4 @@
-import Select from 'react-select'
+import Select, { defaultTheme } from 'react-select'
 
 const CategoryOpt = () => {
 
@@ -14,6 +14,29 @@ const CategoryOpt = () => {
         { value: 'Thriller', label: 'Thriller' },
     ]
 
+
+    const customStyles = {
+        control: (provided) => ({
+            ...provided,
+            backgroundColor: 'bg-[#1d2b3a]',
+            border: '1px solid #ffffff40',
+            borderRadius: '5px',
+        }),
+        singleValue: (provided) => ({
+            ...provided,
+            color: 'lightblue', // Change text color to red
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? '#1d2b3a' : 'lightblue',
+            color: state.isSelected ? 'white' : 'black',
+        }),
+        menu: (provided) => ({
+            ...provided,
+            backgroundColor: 'lightblue',
+        }),
+    };
+
     return (
         <Select
             options={categoryOpt}
@@ -21,6 +44,7 @@ const CategoryOpt = () => {
             placeholder='Subcategory of the Book'
             name="category"
             required="required"
+            styles={customStyles}
         >
         </Select>
     );

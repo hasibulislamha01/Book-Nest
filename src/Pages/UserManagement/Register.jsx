@@ -21,26 +21,42 @@ const Register = () => {
         const userEmail = form.email.value;
         const password = form.password.value;
 
-        // creating / registering user with email and password
-        createUser(userEmail, password)
-            .then((result) => {
-                console.log('Successfull creation of user: ',result.user)
-                
-                // Updating the user with userName and user photo
-                updateUserProfile(userName, userPhoto)
-                .then(() => {
-                    console.log('Updated user successfully')
-                  }).catch((error) => {
-                    console.error("Updated failure: ",error.message)
-                  });
+        // validation
+        if (password.length < 6) {
+            setRegistrationError('Password must have at least 6 characters')
+            return;
+        }
+        else if (! /[A-Z]/.test(password)) {
+            setRegistrationError("PassWord must have at least one uppercase letter")
+            return;
+        }
+        else if (! /[a-z]/.test(password)) {
+            setRegistrationError("PassWord must contain at least one lowercase letter")
+            return;
+        }
 
-                toast.success('Registration Successful')
+        else {
+            // creating / registering user with email and password
+            createUser(userEmail, password)
+                .then((result) => {
+                    console.log('Successfull creation of user: ', result.user)
 
-            })
-            .catch((error) => {
-                console.error("failure to create user: ",error.message)
-                setRegistrationError(error.message)
-            })
+                    // Updating the user with userName and user photo
+                    updateUserProfile(userName, userPhoto)
+                        .then(() => {
+                            console.log('Updated user successfully')
+                        }).catch((error) => {
+                            console.error("Updated failure: ", error.message)
+                        });
+
+                    toast.success('Registration Successful')
+
+                })
+                .catch((error) => {
+                    console.error("failure to create user: ", error.message)
+                    setRegistrationError(error.message)
+                })
+        }
 
     }
 

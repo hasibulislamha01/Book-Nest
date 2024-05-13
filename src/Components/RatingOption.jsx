@@ -11,6 +11,27 @@ const RatingOption = () => {
         { value: '5', label: '5' },
     ]
 
+    const customStyles = {
+        control: (provided) => ({
+            ...provided,
+            backgroundColor: 'bg-[#1d2b3a]',
+            border: '1px solid #ffffff40',
+            borderRadius: '5px',
+        }),
+        singleValue: (provided) => ({
+            ...provided,
+            color: 'lightblue', // Change text color to red
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? '#1d2b3a' : 'lightblue',
+            color: state.isSelected ? 'white' : 'black',
+        }),
+        menu: (provided) => ({
+            ...provided,
+            backgroundColor: 'lightblue',
+        }),
+    };
 
     return (
         <Select
@@ -19,6 +40,7 @@ const RatingOption = () => {
             placeholder='Rating of the Book'
             name="rating"
             required="required"
+            styles={customStyles}
         >
         </Select>
     ); 

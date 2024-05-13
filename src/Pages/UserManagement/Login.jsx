@@ -67,7 +67,7 @@ const Login = () => {
     
 
     return (
-        <div className="min-h-screen px-56 pt-12 bg-[#1d2b3a] w-full">
+        <div className="min-h-screen px-56 pt-20 bg-[#1d2b3a] w-full">
             <Toaster></Toaster>
             {
                 location?.state ?

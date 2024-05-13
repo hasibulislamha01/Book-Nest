@@ -25,7 +25,7 @@ const style = {
 
 
 
-const NestedModal = ({ bookName, bookId, quantity, image }) => {
+const NestedModal = ({ bookName, bookId, quantity, image, bookCategory }) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -43,7 +43,7 @@ const NestedModal = ({ bookName, bookId, quantity, image }) => {
         const borrowerName = form.name.value;
         const borrowerEmail = form.email.value;
         const returnDate = form.date.value;
-        const borrowerData = { borrowerName, borrowerEmail, returnDate, bookName, image }
+        const borrowerData = { borrowerName, borrowerEmail, returnDate, bookName, bookCategory, image, bookId }
         console.log(borrowerData)
 
 

@@ -44,7 +44,8 @@ const AddBooks = () => {
         })
     }
     return (
-        <div className="w-full pt-12 lg:px-60 ">
+        <div className="w-full py-24 bg-[#1d2b3a] lg:px-60 ">
+            <h1 className="text-center text-3xl mb-6 text-[#00dfc4]">Add Books</h1>
             <form onSubmit={handleAddBooks} className="space-y-6">
                 <div className="flex flex-col lg:flex-row justify-between items-center gap-5">
                     <div className="input-container">
@@ -105,7 +106,7 @@ const AddBooks = () => {
                     ></textarea>
                     <span className="label">Add a paragraph for sample readings</span>
                 </div>
-                <button type="submit" className="btn btn-block">Add Book</button>
+                <button type="submit" className="btn btn-block bg-[#6ee7b7]">Add Book</button>
             </form>
         </div>
     );

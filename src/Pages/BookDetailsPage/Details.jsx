@@ -47,7 +47,7 @@ const Details = () => {
                 <div className="flex justify-center items-center gap-6">
                     <button className="btn bg-purple-100"> Back to home </button>
                     {/* <BorrowModal bookName={book?.name} bookId={book?._id} quantity={book?.quantity}></BorrowModal> */}
-                    <NestedModal bookName={book?.name} bookId={book?._id} quantity={book?.quantity} image={book?.image}></NestedModal>
+                    <NestedModal bookCategory={book?.category} bookName={book?.name} bookId={book?._id} quantity={book?.quantity} image={book?.image}></NestedModal>
                     <button className="btn bg-violet-100"> Read Sample </button>
                 </div>
             </div>

@@ -20,7 +20,7 @@ const AllBooks = () => {
 
 
     return (
-        <div className="container mx-auto mt-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="container mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-6">
             <Toaster></Toaster>
             {
                 books?.map(book =>

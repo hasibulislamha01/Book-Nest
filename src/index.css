@@ -66,6 +66,8 @@
     transition: 0.5s;
     font-size: 1rem;
     padding: 0px 10px;
+    background-color: #1d2b3a;
+    border: 1px solid #ffffff40;
 }
 
 .label {
@@ -92,7 +94,7 @@
     border-left: 1px solid #00dfc4;
     border-right: 1px solid #00dfc4;
     letter-spacing: 0.2rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .input-container input:valid ,
@@ -122,17 +124,43 @@
     position: fixed;
     top: 0;
     left: 0;
+    height: 52px;
+    /* font-size: smaller; */
     background-color: aliceblue;
-    opacity: 70%;
-    transition: 2s
+    opacity: 50%;
+    transition: opacity 2s;
+    backdrop-filter: blur(1px);
+}
+.navSticky:hover{
+    opacity: 95%;
 }
 
-.translateleft{
-    transform: translatex(200%);
-    transition: 2s;
+/* .navSticky::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255, .4), transparent);
+    transition: 0.5s;
+} */
+
+.navSticky:hover:before{
+    left: 100%;
 }
 
-.translateRight{
-    transform: translate(320px);
-    transition: 2s;
+.translateLeft {
+    transform: translateX(-220px);
+    transition: transform 2s; /* Apply transition to transform */
 }
+
+.translateRight {
+    transform: translateX(50%);
+    transition: transform 2s; /* Apply transition to transform */
+}
+
+.dummy-class{
+    transition: transform 2s; 
+}
+

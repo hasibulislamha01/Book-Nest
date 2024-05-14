@@ -14,7 +14,7 @@ const RatingOption = () => {
     const customStyles = {
         control: (provided) => ({
             ...provided,
-            backgroundColor: 'bg-[#1d2b3a]',
+            backgroundColor: '#1d2b3a',
             border: '1px solid #ffffff40',
             borderRadius: '5px',
         }),
@@ -36,7 +36,7 @@ const RatingOption = () => {
     return (
         <Select
             options={ratingOpt}
-            className='w-full'
+            className='w-full selectStyles'
             placeholder='Rating of the Book'
             name="rating"
             required="required"

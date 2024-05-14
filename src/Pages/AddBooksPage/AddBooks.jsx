@@ -44,9 +44,9 @@ const AddBooks = () => {
         })
     }
     return (
-        <div className="w-full py-24 bg-[#1d2b3a] lg:px-60 ">
+        <div className="w-full py-24 bg-[#1d2b3a] lg:px-60 bg-Style">
             <h1 className="text-center text-3xl mb-6 text-[#00dfc4]">Add Books</h1>
-            <form onSubmit={handleAddBooks} className="space-y-6">
+            <form onSubmit={handleAddBooks} className="space-y-6 ">
                 <div className="flex flex-col lg:flex-row justify-between items-center gap-5">
                     <div className="input-container">
                         <input
@@ -66,13 +66,13 @@ const AddBooks = () => {
                     </div>
 
                 </div>
-                <div className="px-6 lg:px-0 flex flex-col lg:flex-row justify-center items-center gap-5 w-full">
+                <div className="flex flex-col lg:flex-row justify-center items-center gap-5 w-full">
                     <CategoryOpt></CategoryOpt>
                     <RatingOption></RatingOption>
                 </div>
-                <div className="input-container" id="big-input">
+                <div className="input-container w-full" id="big-input">
                     <textarea
-                        id="big-input big-height"
+                        className="w-full"
                         name="description"
                         required="required"
                     ></textarea>

@@ -7,7 +7,7 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { Bounce } from "react-awesome-reveal";
 import { GoogleAuthProvider } from "firebase/auth";
 import { VscGithub } from "react-icons/vsc";
-import { GithubAuthProvider } from "firebase/auth/cordova";
+import { GithubAuthProvider } from "firebase/auth";
 
 const Login = () => {
     const location = useLocation()
@@ -133,13 +133,13 @@ const Login = () => {
 
             <div className="mt-24 text-center flex flex-col gap-6 justify-center items-center text-white">
                 <h3>login with</h3>
-                <div>
+                <div className="flex items-center justify-center gap-6">
                     <span onClick={handleGoogleLogin} className="text-2xl hover:cursor-pointer"><FcGoogle /></span>
                     <span onClick={handleGithubLogin} className="text-2xl hover:cursor-pointer"><VscGithub /></span>
                 </div>
             </div>
-            <p className="text-center">Do not have an account ?
-                <span className="text-purple-700">
+            <p className="text-center text-white py-12">Do not have an account ?
+                <span className=" ml-3 text-[#34d399] ">
                     <Link to='/register'>sign up</Link>
                 </span>
             </p>

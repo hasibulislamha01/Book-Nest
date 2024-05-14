@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 
 const DonationButton = () => {
     const styles = {
-        height: "50px",
+        height: "48px",
         width: 'auto',
     }
     return (

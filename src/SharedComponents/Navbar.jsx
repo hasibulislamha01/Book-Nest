@@ -35,7 +35,7 @@ const Navbar = () => {
 
     const navigationOptions =
         <>
-            <NavLink to='/' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>Home</NavLink>
+            <NavLink to='/' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>Home</NavLink>
             <NavLink to='/allBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>All Books</NavLink>
             <NavLink to='/addBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>Add Book</NavLink>
             <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>Borrowed Book</NavLink>
@@ -56,7 +56,7 @@ const Navbar = () => {
                     </div>
                     <a className="btn btn-ghost text-xl">BookNest</a>
                 </div>
-                <div id="centerNav" className=" navbar-center lg:flex dummy-class" >
+                <div id="centerNav" className="md:hidden navbar-center lg:flex dummy-class" >
                     <ul className="menu menu-horizontal px-1 text-lg font-medium space-x-5 hidden md:inline-flex" >
                         {navigationOptions}
                     </ul>

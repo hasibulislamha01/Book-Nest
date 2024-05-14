@@ -9,6 +9,7 @@ const Drawer = () => {
     const { user, logoutUser } = useContext(AuthContext)
     const image = user? user?.photoURL : 'avatar.gif';
     const navigate = useNavigate()
+    console.log(user?.photoURL)
 
     const [theme, setTheme] = useState('light')
 

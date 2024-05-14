@@ -18,7 +18,7 @@ const CategoryOpt = () => {
     const customStyles = {
         control: (provided) => ({
             ...provided,
-            backgroundColor: 'bg-[#1d2b3a]',
+            backgroundColor: '#1d2b3a',
             border: '1px solid #ffffff40',
             borderRadius: '5px',
         }),
@@ -40,7 +40,7 @@ const CategoryOpt = () => {
     return (
         <Select
             options={categoryOpt}
-            className='w-full'
+            className='w-full selectStyles'
             placeholder='Subcategory of the Book'
             name="category"
             required="required"

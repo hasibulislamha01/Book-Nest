@@ -4,24 +4,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-.montserrat{
+.montserrat {
     font-family: "Montserrat", sans-serif;
 }
 
-.sans{
+.sans {
     font-family: "Open Sans", sans-serif;
 }
 
-.gothic{
+.gothic {
     font-family: "Nanum Gothic Coding", monospace;
 }
 
-.nunito{
+.nunito {
     font-family: "Nunito", sans-serif;
 }
 
@@ -29,23 +31,29 @@
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
     font-style: normal;
-  }
+}
+
+.ibm {
+    font-family: "IBM Plex Mono", monospace;
+}
 
 .input-container {
     position: relative;
     height: 50px;
     width: 50%;
+    /* border: 1px solid lime; */
 }
 
-.big-input-container{
+.big-input-container {
     position: relative;
     height: 80px;
     width: 100%;
+    /* border: 1px solid fuchsia; */
 }
 
 .input-container input {
     outline: none;
-    height: 3rem;
+    height: 100%;
     width: 100%;
     border: 1px solid #ffffff40;
     border-radius: 5px;
@@ -56,9 +64,10 @@
     background-color: #1d2b3a;
     color: whitesmoke;
 }
+
 .input-container textarea {
     outline: none;
-    height: 3rem;
+    height: 100%;
     width: 100%;
     border: 1px solid;
     border-radius: 5px;
@@ -81,13 +90,11 @@
     color: #ffffff40;
 }
 
-.input-container textarea:valid ~ .label,
-.input-container textarea:focus ~ .label,
-.input-container input:valid ~ .label,
-.input-container input:focus ~ .label {
-    color: #00dfc4 ;
-    transform: translateX(10px) translateY(-20px);
-    transition: 400ms; 
+.input-container textarea:valid~.label,
+.input-container textarea:focus~.label{
+    color: #00dfc4;
+    transform: translateX(20px) translateY(-27px);
+    transition: 400ms;
     background-color: #1d2b3a;
     font-size: 0.75rem;
     padding: 0px 5px;
@@ -97,10 +104,24 @@
     font-weight: 400;
 }
 
-.input-container input:valid ,
+.input-container input:valid~.label,
+.input-container input:focus~.label {
+    color: #00dfc4;
+    transform: translateX(10px) translateY(-20px);
+    transition: 400ms;
+    background-color: #1d2b3a;
+    font-size: 0.75rem;
+    padding: 0px 5px;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
+    letter-spacing: 0.2rem;
+    font-weight: 400;
+}
+
+.input-container input:valid,
 .input-container input:focus {
     border: 1px solid #00dfc4;
-    
+
 }
 
 /* .input-container:nth-child(2) input:valid ~ .label ,
@@ -109,18 +130,21 @@
     color: #1d2b3a;
 } */
 
-#big-input{
+#big-input {
     width: 100%;
+    min-height: 100px;
+    /* border: 1px solid fuchsia; */
 }
-#big-height{
+
+#big-height {
     height: 100%;
 }
 
-.custom-swal-container{
+.custom-swal-container {
     z-index: 9999;
 }
 
-.navSticky{
+.navSticky {
     position: fixed;
     top: 0;
     left: 0;
@@ -131,8 +155,14 @@
     transition: opacity 1.5s;
     backdrop-filter: blur(1px);
 }
-.navSticky:hover{
+
+.navSticky:hover {
     opacity: 100%;
+}
+
+.selectStyles{
+    width: 100%;
+    /* border: 1px solid yellow; */
 }
 
 /* .navSticky::before{
@@ -146,7 +176,7 @@
     transition: 0.5s;
 } */
 
-.navSticky:hover:before{
+.navSticky:hover:before {
     left: 100%;
 }
 
@@ -157,26 +187,71 @@
 
 .translateRight {
     transform: translateX(41%);
-    transition: transform 2s; 
+    transition: transform 2s;
 }
 
-.dummy-class{
-    transition: transform 2s; 
+.dummy-class {
+    transition: transform 2s;
 }
 
-#navContainer{
+#navContainer {
     background-color: rgba(240, 248, 255, 0.7);
 }
-#navDrop{
+
+#navDrop {
     background-color: rgba(0, 0, 0, 0.75);
+}
+
+
+.bg-Style{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1042%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='rgba(0%2c 123%2c 127%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c752.939C134.011%2c717.513%2c235.49%2c622.812%2c351.564%2c547.045C466.665%2c471.913%2c620.671%2c434.554%2c678.672%2c309.939C736.728%2c185.206%2c680.714%2c40.624%2c649.655%2c-93.406C620.969%2c-217.198%2c563.237%2c-324.776%2c505.373%2c-437.909C428.454%2c-588.297%2c409.514%2c-799.484%2c254.359%2c-866.267C101.661%2c-931.993%2c-58.806%2c-789.722%2c-220.296%2c-750.258C-391.615%2c-708.392%2c-594.333%2c-746.921%2c-723.846%2c-627.216C-855.452%2c-505.576%2c-888.443%2c-307.558%2c-893.094%2c-128.408C-897.439%2c38.939%2c-816.703%2c188.956%2c-749.011%2c342.062C-680.466%2c497.096%2c-644.082%2c689.429%2c-495.463%2c770.955C-347.573%2c852.081%2c-163.078%2c796.049%2c0%2c752.939' fill='%23006266'%3e%3c/path%3e%3cpath d='M1920 1791.963C2058.381 1804.4279999999999 2220.494 1798.037 2317.576 1698.6399999999999 2414.48 1599.426 2358.837 1431.771 2400.884 1299.612 2435.978 1189.307 2551.795 1105.852 2542.892 990.442 2533.908 873.981 2429.919 792.69 2354.874 703.179 2278.553 612.1469999999999 2217.967 484.41499999999996 2101.044 463.422 1983.931 442.395 1891.917 562.278 1778.996 599.783 1671.6390000000001 635.44 1548.38 612.7819999999999 1455.767 677.74 1351.142 751.123 1242.355 853.912 1234.792 981.482 1227.231 1109.023 1360.3020000000001 1195.278 1418.338 1309.101 1473.057 1416.4180000000001 1479.145 1547.3980000000001 1565.935 1630.9360000000001 1661.279 1722.7069999999999 1788.2 1780.091 1920 1791.963' fill='%23009498'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1042'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-position: center;
+    background-size: cover;
 }
 
 /* media queries for responsive dessign */
 
-@media screen and (max-width:600px){
+/* ------------  Mobiles ------------- */
+
+@media screen and (max-width:600px) {
     .input-container {
         position: relative;
         height: 50px;
-        width: 90%;
+        width: 99%;
     }
+
+    #big-input {
+        width: 99%;
+        margin: 24px auto 24px;
+    }
+
+    .selectStyles{
+        width: 99%;
+    }
+    .antdCard{
+        width: 100%;
+        margin: 0 auto;
+        font-family: "IBM Plex Mono", monospace;
+    }
+    
+    
+}
+
+/* ------------- tablets ----------- */
+@media only screen and (max-width : 778px){
+    .input-container {
+        position: relative;
+        height: 50px;
+        width: 60%;
+    }
+
+    #big-input {
+        width: 60%;
+        margin: 12px auto 12px;
+    }
+
+    .selectStyles{
+        width: 60%;
+    }
+
 }

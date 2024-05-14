@@ -72,12 +72,12 @@ const Register = () => {
     }
 
     return (
-        <div className="pt-12 px-80 bg-[#1d2b3a]">
+        <div className="pt-28 bg-[#1d2b3a] min-h-screen">
             <Toaster></Toaster>
-            <h1 className="text-center text-3xl mb-6">Register Here</h1>
-            <form className="space-y-4" onSubmit={handleRegister}>
-                <div className="flex justify-between gap-4">
-                    <div className="input-container">
+            <h1 className="text-center text-3xl mb-6 text-[#34d399]">Register Here</h1>
+            <form className="space-y-4  px-2  md:px-16 lg:px-80" onSubmit={handleRegister}>
+                <div className="flex flex-col lg:flex-row justify-between gap-4">
+                    <div className="input-container mx-auto">
                         <input
                             className=""
                             type="text"
@@ -86,7 +86,7 @@ const Register = () => {
                         />
                         <label className="label">First Name</label>
                     </div>
-                    <div className="input-container">
+                    <div className="input-container mx-auto">
                         <input
                             className=""
                             type="text"
@@ -105,8 +105,8 @@ const Register = () => {
                     />
                     <label className="label">Your Photo</label>
                 </div>
-                <div className="flex justify-between gap-4">
-                    <div className="w-full input-container">
+                <div className="flex flex-col lg:flex-row justify-between gap-4">
+                    <div className="w-full input-container mx-auto">
                         <input
                             className=""
                             type="email"
@@ -115,7 +115,7 @@ const Register = () => {
                         />
                         <label className="label">Email</label>
                     </div>
-                    <div className="w-full relative input-container">
+                    <div className="w-full relative input-container mx-auto">
                         <input
                             className=""
                             type={showPassword ? 'text' : 'password'}
@@ -135,13 +135,15 @@ const Register = () => {
                         </span>
                     </div>
                 </div>
-                <button type="submit" className="btn btn-block mt-4">Register</button>
+                <button type="submit" className="btn btn-block mt-4 bg-[#34d399] border-transparent">Register</button>
             </form>
-            <p className="mt-6 text-center">Already have an account ?
-                <span className="text-purple-700 ml-2">
-                    <Link to='/login'>sign in</Link>
-                </span>
-            </p>
+            <div className="py-12">
+                <p className="mt-6 text-center text-white">Already have an account ?
+                    <span className=" ml-3 text-[#34d399] ">
+                        <Link to='/login'>sign in</Link>
+                    </span>
+                </p>
+            </div>
         </div>
     );
 };

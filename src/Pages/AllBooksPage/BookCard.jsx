@@ -26,11 +26,13 @@ const BookCard = ({ book }) => {
                    <LoadingSkeleton/>
                     :
                     <Card
+                        className='antdCard'
                         data-aos="fade-up" data-aos-duration="1000"
                         hoverable
                         // cover
                         style={{
                             width: 300,
+                            fontFamily: "IBM Plex Mono, monospace",
                         }}
                         cover={<img alt="example" src={book?.image} style={{ height: '300px', objectFit: 'cover', }} />}
                     >
@@ -71,8 +73,8 @@ const BookCard = ({ book }) => {
 
                             <p className='font-bold'>
                                 <span className='text-indigo-500 mr-2'>{book?.category}</span>
-                                by
-                                <span className='text-teal-500 ml-2'>{book?.author}</span>
+                                {/* by */}
+                                <span className='text-[#191970] ml-2'>{book?.author}</span>
                             </p>
                             <Link to={`/allBooks/update/${book?._id}`} className='btn btn-sm bg-sky-200'>Update</Link>
                         </div>

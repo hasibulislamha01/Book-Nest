@@ -7,6 +7,7 @@ const Details = () => {
     const book = data[0]
     console.log(book)
 
+
     return (
         <div className="container mx-auto pt-20 flex flex-col md:flex-row justify-between gap-10 md:gap-0 px-2 lg:px-0 ">
             <div className="w-full mx-auto md:w-2/5 ">

@@ -27,10 +27,10 @@ const AllBooks = () => {
 
 
     return (
-        <div className="container mx-auto pt-20">
+        <div className="container mx-auto pt-20 ibm">
             <div className="mb-6 flex items-center justify-center gap-4">
                 <FilterDropDown showFilteredData={showFilteredData} books={books}></FilterDropDown>
-                <h1 className="text-center text-3xl">
+                <h1 className="text-center text-xl lg:text-3xl">
                     Showing
                     <span className="mx-2">
                         {

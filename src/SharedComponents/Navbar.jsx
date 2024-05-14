@@ -36,13 +36,13 @@ const Navbar = () => {
     const navigationOptions =
         <>
             <NavLink to='/' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>Home</NavLink>
-            <NavLink to='/allBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>All Book</NavLink>
-            <NavLink to='/addBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>Add Book</NavLink>
-            <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-400'}>Borrowed Book</NavLink>
+            <NavLink to='/allBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>All Books</NavLink>
+            <NavLink to='/addBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>Add Book</NavLink>
+            <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>Borrowed Book</NavLink>
 
         </>
     return (
-        <div id="navContainer" className="h-14 w-full z-10 mono font-bold bg-slate-100 opacity-60 fixed top-0">
+        <div id="navContainer" className="h-14 w-full z-10 mono font-bold fixed top-0">
             <div className="navbar container mx-auto min-w-12  flex justify-between">
 
                 <div id="leftNav" className="navbar-start w-[140px]">
@@ -50,7 +50,7 @@ const Navbar = () => {
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 text-xl font-md opacity-100 bg-black text-white">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 text-xl font-md opacity-100 bg-black text-white" id="navDrop">
                             {navigationOptions}
                         </ul>
                     </div>

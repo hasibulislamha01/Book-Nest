@@ -6,9 +6,11 @@ import toast, { Toaster } from "react-hot-toast";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { Bounce } from "react-awesome-reveal";
 import { GoogleAuthProvider } from "firebase/auth";
+import { VscGithub } from "react-icons/vsc";
+import { GithubAuthProvider } from "firebase/auth/cordova";
 
 const Login = () => {
-    const location= useLocation()
+    const location = useLocation()
     const navigate = useNavigate()
     console.log(location)
     const { loginUser, loginWithGoogle } = useContext(AuthContext)
@@ -26,9 +28,9 @@ const Login = () => {
             .then((result) => {
                 console.log(result.user)
                 toast.success('You have successfully Logged in')
-                if(location?.state){
+                if (location?.state) {
                     navigate(location.state)
-                }else{
+                } else {
                     navigate('/')
                 }
             })
@@ -50,24 +52,41 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider()
     const handleGoogleLogin = () => {
         loginWithGoogle(googleProvider)
-        .then(result=>{
-            console.log(result.user)
-            toast.success('Login Successful')
-            if(location?.state){
-                navigate(location.state)
-            }else{
-                navigate('/')
-            }
-        }) .catch ( error => {
-            console.error( error. message)
-            toast.error(error.message)
-        }) 
+            .then(result => {
+                console.log(result.user)
+                toast.success('Login Successful')
+                if (location?.state) {
+                    navigate(location.state)
+                } else {
+                    navigate('/')
+                }
+            }).catch(error => {
+                console.error(error.message)
+                toast.error(error.message)
+            })
+    }
+    // google login
+    const githubProvider= new GithubAuthProvider()
+    const handleGithubLogin = () => {
+        loginWithGoogle(githubProvider)
+            .then(result => {
+                console.log(result.user)
+                toast.success('Login Successful')
+                if (location?.state) {
+                    navigate(location.state)
+                } else {
+                    navigate('/')
+                }
+            }).catch(error => {
+                console.error(error.message)
+                toast.error(error.message)
+            })
     }
 
-    
+
 
     return (
-        <div className="min-h-screen px-56 pt-20 bg-[#1d2b3a] w-full">
+        <div className="min-h-screen px-0 md:px-16 lg:px-56 pt-20 bg-[#1d2b3a] w-full ">
             <Toaster></Toaster>
             {
                 location?.state ?
@@ -78,7 +97,7 @@ const Login = () => {
                     </div>
                     : <></>
             }
-            <h1 className="text-center mb-6 text-3xl text-violet-600">Login now</h1>
+            <h1 className="text-center mb-6 text-3xl text-[#34d399]">Login now</h1>
 
             <form className="flex flex-col items-center justify-center gap-10" onSubmit={handleLogin}>
                 <div className="input-container">
@@ -100,7 +119,7 @@ const Login = () => {
                     <span className="label">Password</span>
                     <span
                         onClick={toggleShowPassword}
-                        className="absolute top-[18px] right-[15px]"
+                        className="absolute top-[18px] right-[15px] text-white"
                     >
                         {
                             !showPassword ?
@@ -108,13 +127,16 @@ const Login = () => {
                                 : <BsEyeSlash />
                         }
                     </span>
-                    <button type="submit" className="btn w-full mt-6">Login</button>
+                    <button type="submit" className="btn w-full mt-6 bg-[#34d399] border-transparent">Login</button>
                 </div>
             </form>
 
-            <div className="mt-24 text-center flex flex-col justify-center items-center">
+            <div className="mt-24 text-center flex flex-col gap-6 justify-center items-center text-white">
                 <h3>login with</h3>
-                <span onClick={handleGoogleLogin} className="text-2xl hover:cursor-pointer"><FcGoogle /></span>
+                <div>
+                    <span onClick={handleGoogleLogin} className="text-2xl hover:cursor-pointer"><FcGoogle /></span>
+                    <span onClick={handleGithubLogin} className="text-2xl hover:cursor-pointer"><VscGithub /></span>
+                </div>
             </div>
             <p className="text-center">Do not have an account ?
                 <span className="text-purple-700">

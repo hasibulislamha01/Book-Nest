@@ -31,11 +31,11 @@ const Slider = () => {
                             <div className="hero-overlay bg-opacity-60"></div>
                             <div className="hero-content text-center text-neutral-content">
                                 <div className="text-rose-100 opacity-50">
-                                    <h1 className="mb-5 text-5xl font-bold">
+                                    <h1 className="mb-5 text-3xl  lg:text-5xl font-bold">
                                         A book is a dream <br />
 
                                     </h1>
-                                    <p className="text-5xl font-bold w-full">
+                                    <p className=" text-3xl  lg:text-5xl font-bold w-full">
                                         <Typewriter
                                             words={sentArr}
                                         ></Typewriter>

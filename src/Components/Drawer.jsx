@@ -89,7 +89,7 @@ const Drawer = () => {
             
 
             <div className="dropdown dropdown-hover dropdown-end relative">
-                <div tabIndex={0} role="button" className="">
+                <div tabIndex={0} role="button" className="opacity-70">
                     <img className="w-10 h-10 rounded-full object-cover" src={image} alt="" />
                 </div>
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">

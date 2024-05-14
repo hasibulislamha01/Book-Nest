@@ -27,7 +27,7 @@ const AllBooks = () => {
 
 
     return (
-        <div className="container mx-auto pt-20 ">
+        <div className="container mx-auto pt-20">
             <div className="mb-6 flex items-center justify-center gap-4">
                 <FilterDropDown showFilteredData={showFilteredData} books={books}></FilterDropDown>
                 <h1 className="text-center text-3xl">
@@ -41,8 +41,9 @@ const AllBooks = () => {
                     Books
                 </h1>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <Toaster></Toaster>
+            <Toaster></Toaster>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+                
                 {
                     books?.filter(book => {
                         return query === '' ? book : book?.quantity > 0

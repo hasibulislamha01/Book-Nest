@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
@@ -96,6 +96,7 @@ const Drawer = () => {
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a>{user?.displayName}</a></li>
                     <li><a onClick={handleLogButton}>{logButton}</a></li>
+                    <li><Link className={user?'inline-block' : 'hidden'} to='/updateProfile'>Update Profile</Link></li>
                 </ul>
             </div>
         </div>

@@ -20,7 +20,7 @@ const UpdateProfile = () => {
         })
     }
     return (
-        <div className="container mx-auto px-56 mt-12">
+        <div className="min-h-screen px-2 lg:px-56 bg-gray py-24 bg-cover">
             <Toaster></Toaster>
             
             <h1 className="text-center mb-6 text-3xl text-violet-600">Update Profile</h1>

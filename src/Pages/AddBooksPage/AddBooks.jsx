@@ -32,7 +32,7 @@ const AddBooks = () => {
         console.log(bookData)
 
         // adding the book to backend
-        const url = 'http://localhost:5000/books'
+        const url = 'https://booknest-phi.vercel.app/books'
         axios.post(url, bookData)
         .then(response=>{
             console.log(response.data)

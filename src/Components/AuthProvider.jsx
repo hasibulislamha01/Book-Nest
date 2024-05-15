@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
                 setLoading(false)
 
                 // generating token
-                await axios.post('http://localhost:5000/jwt',
+                await axios.post('https://booknest-phi.vercel.app/jwt',
                     loggedUser,
                     { withCredentials: true }
                 )
@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
                     })
 
             } else {
-                axios.post('http://localhost:5000/logout',
+                axios.post('https://booknest-phi.vercel.app/logout',
                     loggedUser,
                     { withCredentials: true })
                     . then(response => {

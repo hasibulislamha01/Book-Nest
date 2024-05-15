@@ -12,7 +12,7 @@ const AllBooks = () => {
     const [books, setBooks] = useState([])
     const [isGridMode, setGridMode] = useState(true)
     useEffect(() => {
-        axios('http://localhost:5000/books', {withCredentials: true})
+        axios('https://booknest-phi.vercel.app/books', {withCredentials: true})
             .then(response => {
                 // console.log(response)
                 setBooks(response?.data)

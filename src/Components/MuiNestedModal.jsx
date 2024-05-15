@@ -61,7 +61,7 @@ const NestedModal = ({ bookName, bookId, quantity, image, bookCategory }) => {
 
         // send borrower data to borrowed collection of database
         const sendBorrowedBookToDatabase = () => {
-            axios.post('http://localhost:5000/borrowedBooks', borrowerData)
+            axios.post('https://booknest-phi.vercel.app/borrowedBooks', borrowerData)
                 .then(response => {
                     console.log(response.data)
                 }).catch(error => {
@@ -72,7 +72,7 @@ const NestedModal = ({ bookName, bookId, quantity, image, bookCategory }) => {
 
         // update book information of the borrowed book
         const confirmBorrowBook = () => {
-            const url = `https://booknest-phi.vercel.app/borrowed/${bookId}`;
+            const url = `https://booknest-phi.vercel.app/books/borrowed/${bookId}`;
             axios.patch(url)
                 .then(response => {
                     console.log(response.data)
@@ -95,7 +95,7 @@ const NestedModal = ({ bookName, bookId, quantity, image, bookCategory }) => {
 
         if (quantity > 0) {
             // validate if the book is already borrowed by the user
-            axios.get(`http://localhost:5000/borrowedBooks/${borrowerEmail}`)
+            axios.get(`https://booknest-phi.vercel.app/borrowedBooks/${borrowerEmail}`)
                 .then(response => {
                     const data = response?.data
                     const found = data.find(singleBook => singleBook.bookId === bookId)

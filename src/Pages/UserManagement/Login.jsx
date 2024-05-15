@@ -27,7 +27,7 @@ const Login = () => {
         // signing in the user with email and password
         loginUser(userEmail, password)
             .then(async (result) => {
-                await axios.post('http://localhost:5000/jwt', { email: result?.user?.email })
+                await axios.post('https://booknest-phi.vercel.app/jwt', { email: result?.user?.email })
                     .then(response => {
                         console.log('token', response.data)
                     })

@@ -5,11 +5,11 @@ import PropTypes from 'prop-types'
 const BorrowedBooksCard = ({ book }) => {
     console.log(book)
     const handleReturn = () => {
-        axios.delete(`http://localhost:5000/borrowedBooks/${book?.borrowerEmail}`)
+        axios.delete(`https://booknest-phi.vercel.app/borrowedBooks/${book?.borrowerEmail}`)
         .then(response => {
             console.log(response.data)
 
-            axios.patch(`https://booknest-phi.vercel.app/returned/${book?.bookId}`)
+            axios.patch(`https://booknest-phi.vercel.app/books/returned/${book?.bookId}`)
             .then(response=> {
                 console.log(response.data)
                 toast.success('Book Returned')

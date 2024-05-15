@@ -7,7 +7,7 @@ const Categories = () => {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/categories')
+        axios.get('https://booknest-phi.vercel.app/categories')
             .then(response => {
                 setCategories(response.data)
             }).catch(error => {

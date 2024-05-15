@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allBooks/update/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`),
+        loader: ({ params }) => fetch(`https://booknest-phi.vercel.app/${params.id}`),
         element:
           <ValidateUser>
             <UpdateBook></UpdateBook>
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allBooks/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`),
+        loader: ({ params }) => fetch(`https://booknest-phi.vercel.app/${params.id}`),
         element:
           <ValidateUser>
             <Details></Details>
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allBooks/categories/:category",
-        loader: ({params})=> fetch(`http://localhost:5000/books/categories/${params?.category}`),
+        loader: ({params})=> fetch(`https://booknest-phi.vercel.app/categories/${params?.category}`),
         element: <SameCategoryBooks></SameCategoryBooks>
       },
     ]

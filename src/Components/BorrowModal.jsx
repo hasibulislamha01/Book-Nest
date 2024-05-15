@@ -24,7 +24,7 @@ const BorrowModal = ({ bookName, bookId, quantity }) => {
 
         // update book information of the borrowed book
         const confirmBorrowBook = () => {
-            const url = `http://localhost:5000/books/borrowed/${bookId}`;
+            const url = `https://booknest-phi.vercel.app/borrowed/${bookId}`;
             axios.patch(url)
                 .then(response => {
                     console.log(response.data)

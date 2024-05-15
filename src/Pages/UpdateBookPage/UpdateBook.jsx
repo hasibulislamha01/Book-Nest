@@ -29,7 +29,7 @@ const UpdateBook = () => {
         }
         console.log(updatedBook)
 
-        const url = `http://localhost:5000/books/${updatableBookId}`;
+        const url = `https://booknest-phi.vercel.app/${updatableBookId}`;
 
         axios.patch(url, updatedBook)
             .then(response => {

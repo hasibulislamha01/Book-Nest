@@ -9,7 +9,7 @@ const BorrowedBooksCard = ({ book }) => {
         .then(response => {
             console.log(response.data)
 
-            axios.patch(`http://localhost:5000/books/returned/${book?.bookId}`)
+            axios.patch(`https://booknest-phi.vercel.app/returned/${book?.bookId}`)
             .then(response=> {
                 console.log(response.data)
                 toast.success('Book Returned')

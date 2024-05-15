@@ -140,8 +140,8 @@ const NestedModal = ({ bookName, bookId, quantity, image, bookCategory }) => {
                     style={{
                         textTransform: 'capitalize',
                         fontWeight: '600',
-                        backgroundColor: '#6ee7b7',
-                        color: 'black',
+                        backgroundColor: '#6A5ACD',
+                        color: '#F5F5DC',
                         padding: '10px, 30px, 10px',
                         width: '200px'
                     }}

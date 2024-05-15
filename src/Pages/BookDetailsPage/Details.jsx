@@ -13,7 +13,7 @@ const Details = () => {
             <div className="w-full mx-auto md:w-2/5 space-y-5">
                 <img className="w-full min-h-[350px] max-h-screen" src={book?.image} alt="" />
                 <div className="flex flex-col items-center">
-                    <h3 className="text-xl text-sky-400 font-bold">{book?.category}</h3>
+                    <h3 className="text-xl text-[#6A5ACD] font-bold">{book?.category}</h3>
                     <div className="flex items-center gap-2">
                         <p className="">Rating: </p>
                         <Rating name="read-only" value={book?.rating} readOnly size="small" />
@@ -21,7 +21,7 @@ const Details = () => {
                     <p>Available copies: {book?.quantity}</p>
                 </div>
             </div>
-            <div className="text-center w-full flex flex-col justify-evenly">
+            <div className="text-center w-full flex flex-col justify-evenly space-y-6">
                 <div className="">
                     <h1 className="text-3xl font-bold">
                         {book?.name}
@@ -33,7 +33,7 @@ const Details = () => {
                     </p>
                     <p>
                         {book?.rating > 4 ?
-                            <span className="mt-2 badge bg-red-200 text-red-600 font-semibold p-3">Top Rated</span>
+                            <span className="mt-2 badge bg-rose-100 text-rose-500 font-semibold p-3">Top Rated</span>
                             : <></>
                         }
                     </p>
@@ -46,11 +46,11 @@ const Details = () => {
                         {book?.description}
                     </p>
                 </div>
-                <div className="flex justify-center items-center gap-6">
-                    <Link to='/' className="btn bg-purple-100"> Back to home </Link>
+                <div className="flex flex-col lg:flex-row justify-center items-center gap-6">
+                    <Link to='/' className="btn bg-[#556B2F] text-[#F5F5DC]"> Back to home </Link>
                     {/* <BorrowModal bookName={book?.name} bookId={book?._id} quantity={book?.quantity}></BorrowModal> */}
                     <NestedModal bookCategory={book?.category} bookName={book?.name} bookId={book?._id} quantity={book?.quantity} image={book?.image}></NestedModal>
-                    <button className="btn bg-violet-100"> Read Sample </button>
+                    <button className="btn bg-[#556B2F] text-[#F5F5DC]"> Read Sample </button>
                 </div>
             </div>
 

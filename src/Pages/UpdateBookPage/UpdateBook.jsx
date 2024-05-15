@@ -44,10 +44,11 @@ const UpdateBook = () => {
 
     }
     return (
-        <div className="container mx-auto mt-12 px-60">
+        <div className="py-24 md:px-10 lg:px-60 update-bg">
             <Toaster></Toaster>
+            <h1 className="text-center text-3xl mb-8 text-white font-bold">Update Book</h1>
             <form onSubmit={handleUpdate} className="space-y-6">
-                <div className="flex justify-between items-center gap-5">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-5">
                     <div className="input-container">
                         <input
                             type="text"
@@ -66,7 +67,7 @@ const UpdateBook = () => {
                     </div>
 
                 </div>
-                <div className="flex justify-center items-center gap-5 w-full">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-5 w-full ">
                     <CategoryOpt></CategoryOpt>
                     <RatingOption></RatingOption>
                 </div>

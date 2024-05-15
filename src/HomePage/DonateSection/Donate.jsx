@@ -7,7 +7,7 @@ const Donate = () => {
             <h1 className="text-3xl ">Join Our <span className="text-emerald-500">Donation</span> Programme</h1>
             <p className="leading-7 px-2 md:px-12 lg:px-20">
 
-                Your donation can make a significant impact in providing education to underprivileged children. By contributing to our cause, you are directly supporting the dreams and aspirations of these kids who lack access to quality education. Your generosity will help provide essential resources such as school supplies, textbooks, and educational programs, empowering these children to break the cycle of poverty and build a brighter future.  Together, we can make a difference in transforming young lives through education. Thank you for your support!
+                Your donation can make a significant impact in providing education to underprivileged children. By contributing to our cause, you are directly supporting the dreams and aspirations of these kids who lack access to quality education. Your generosity will help provide essential resources such as school supplies, textbooks, and educational programs, empowering these children to break the cycle of poverty and build a brighter future.  Together, we can make a difference in transforming young lives through education. <br /> Thank you for your support!
             </p>
             <img className="max-h-[400px] w-full object-cover rounded-xl" src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="" />
             <div className="flex flex-col-reverse lg:flex-row  lg:justify-between items-center">

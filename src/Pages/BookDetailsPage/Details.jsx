@@ -1,5 +1,5 @@
 import { Rating } from "@mui/material";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import NestedModal from "../../Components/MuiNestedModal";
 
 const Details = () => {
@@ -10,11 +10,11 @@ const Details = () => {
 
     return (
         <div className="container mx-auto pt-20 flex flex-col md:flex-row justify-between gap-10 md:gap-0 px-2 lg:px-0 ">
-            <div className="w-full mx-auto md:w-2/5 ">
+            <div className="w-full mx-auto md:w-2/5 space-y-5">
                 <img className="w-full min-h-[350px] max-h-screen" src={book?.image} alt="" />
-                <div className="">
+                <div className="flex flex-col items-center">
                     <h3 className="text-xl text-sky-400 font-bold">{book?.category}</h3>
-                    <div className="flex items-center justify-center gap-2">
+                    <div className="flex items-center gap-2">
                         <p className="">Rating: </p>
                         <Rating name="read-only" value={book?.rating} readOnly size="small" />
                     </div>
@@ -47,7 +47,7 @@ const Details = () => {
                     </p>
                 </div>
                 <div className="flex justify-center items-center gap-6">
-                    <button className="btn bg-purple-100"> Back to home </button>
+                    <Link to='/' className="btn bg-purple-100"> Back to home </Link>
                     {/* <BorrowModal bookName={book?.name} bookId={book?._id} quantity={book?.quantity}></BorrowModal> */}
                     <NestedModal bookCategory={book?.category} bookName={book?.name} bookId={book?._id} quantity={book?.quantity} image={book?.image}></NestedModal>
                     <button className="btn bg-violet-100"> Read Sample </button>

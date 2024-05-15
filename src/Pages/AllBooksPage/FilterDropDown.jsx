@@ -37,7 +37,7 @@ const FilterDropDown = ({showFilteredData}) => {
                 }}
             >
                 <a>
-                    <button className='text-3xl'><IoFilterCircleOutline /></button>
+                    <button className='text-xl lg:text-3xl'><IoFilterCircleOutline /></button>
                 </a>
             </Dropdown>
         </div>

@@ -8,6 +8,7 @@ import { Bounce } from "react-awesome-reveal";
 import { GoogleAuthProvider } from "firebase/auth";
 import { VscGithub } from "react-icons/vsc";
 import { GithubAuthProvider } from "firebase/auth";
+import axios from "axios";
 
 const Login = () => {
     const location = useLocation()
@@ -25,8 +26,15 @@ const Login = () => {
 
         // signing in the user with email and password
         loginUser(userEmail, password)
-            .then((result) => {
-                console.log(result.user)
+            .then(async (result) => {
+                await axios.post('http://localhost:5000/jwt', { email: result?.user?.email })
+                    .then(response => {
+                        console.log('token', response.data)
+                    })
+                // .catch(error){
+                //     console.error(error.data)
+                // }
+                console.log(result?.user)
                 toast.success('You have successfully Logged in')
                 if (location?.state) {
                     navigate(location.state)
@@ -52,7 +60,7 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider()
     const handleGoogleLogin = () => {
         loginWithGoogle(googleProvider)
-            .then(result => {
+            .then( result => {
                 console.log(result.user)
                 toast.success('Login Successful')
                 if (location?.state) {
@@ -66,7 +74,7 @@ const Login = () => {
             })
     }
     // google login
-    const githubProvider= new GithubAuthProvider()
+    const githubProvider = new GithubAuthProvider()
     const handleGithubLogin = () => {
         loginWithGoogle(githubProvider)
             .then(result => {

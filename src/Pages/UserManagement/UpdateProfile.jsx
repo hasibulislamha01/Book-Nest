@@ -23,7 +23,7 @@ const UpdateProfile = () => {
         <div className="min-h-screen px-2 lg:px-56 bg-gray py-24 bg-cover">
             <Toaster></Toaster>
             
-            <h1 className="text-center mb-6 text-3xl text-violet-600">Update Profile</h1>
+            <h1 className="text-center mb-6 text-3xl text-white">Update Profile</h1>
 
             <form className="flex flex-col items-center justify-center gap-10" onSubmit={handleUpdateProfile}>
                 <div className="input-container">

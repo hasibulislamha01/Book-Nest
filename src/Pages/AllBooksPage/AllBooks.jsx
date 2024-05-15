@@ -12,7 +12,7 @@ const AllBooks = () => {
     const [books, setBooks] = useState([])
     const [isGridMode, setGridMode] = useState(true)
     useEffect(() => {
-        axios('http://localhost:5000/books')
+        axios('http://localhost:5000/books', {withCredentials: true})
             .then(response => {
                 // console.log(response)
                 setBooks(response?.data)
@@ -40,11 +40,11 @@ const AllBooks = () => {
 
 
     return (
-        <div className="container mx-auto pt-20 ibm">
-            <div className="mb-12 flex items-center justify-between gap-4 ">
-                <div className="flex items-center gap-8">
+        <div className="container mx-auto py-20 mono">
+            <div className="mb-12 flex justify-between px-2 lg:px-6 gap-4">
+                <div className="flex gap-2 lg:gap-6">
                     <FilterDropDown showFilteredData={showFilteredData} books={books}></FilterDropDown>
-                    <h1 className="text-center text-xl lg:text-3xl">
+                    <h1 className="text-center text-md lg:text-3xl">
                         Showing
                         <span className="mx-2">
                             {
@@ -56,8 +56,8 @@ const AllBooks = () => {
                     </h1>
                 </div>
                 <div className="flex justify-end gap-8 text-xl">
-                    <p onClick={displayGrid}><CiGrid41 /></p>
-                    <p onClick={displayList}><CiBoxList /></p>
+                    <p className={isGridMode ? 'hidden' : 'inline-flex'} onClick={displayGrid}><CiGrid41 /></p>
+                    <p className={isGridMode ? 'inline-flex' : 'hidden'}  onClick={displayList}><CiBoxList /></p>
                 </div>
             </div>
             <Toaster></Toaster>

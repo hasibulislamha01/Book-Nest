@@ -1,8 +1,21 @@
-# React + Tailwind + Daisyui + React-router
+# BookNest
+#### This is an online based book library for book lovers.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Live Site: https://book-nest-d0b87.web.app
 
-Currently, two official plugins are available:
+## Features of the website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Users can browse huge collection of books easily
+- Users can borrow books
+- Can see book details
+- Can change the theme of the website
+- Users get the best ui experience available
+- They can join several programms like donation or fair
+
+## Categories
+- Novels
+- Romance
+- Fantasy
+- Coming of ages
+- Thriller
+- Sci-fi

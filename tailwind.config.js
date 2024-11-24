@@ -5,8 +5,15 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#7c3aed",  //violate
+        olive: "#556B2F", //olive
+        secondary: "#4b5563"
+      },
+    },
   },
   daisyui: {
     themes: ['light', 'dark']

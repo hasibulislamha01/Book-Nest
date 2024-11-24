@@ -8,9 +8,11 @@ export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
 
+    const localTheme = localStorage.getItem('theme') || 'light'
     const auth = getAuth(app)
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [theme, setTheme] = useState(localTheme)
 
     // authentication state observer
     useEffect(() => {
@@ -36,16 +38,16 @@ const AuthProvider = ({ children }) => {
                 axios.post('https://booknest-phi.vercel.app/logout',
                     loggedUser,
                     { withCredentials: true })
-                    . then(response => {
-                        console.log('token clear',response.data)
-                    }).catch(error=> {
+                    .then(response => {
+                        console.log('token clear', response.data)
+                    }).catch(error => {
                         console.error(error.message)
                     })
                 setUser(null)
                 setLoading(false)
             }
         });
-    }, [user])
+    }, [auth, user?.email])
 
     // Create new user with email and password
     const createUser = (email, password) => {
@@ -89,6 +91,22 @@ const AuthProvider = ({ children }) => {
 
     console.log(user);
 
+
+    // -------------- Theme controlling logics here ------------------//
+    const toggleTheme = () => {
+        if (theme === 'light') { setTheme('dark') }
+        if (theme === 'dark') { setTheme('light') }
+    }
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme)
+    }, [theme])
+
     // these data will be passed with context api using useContext
     const authData = {
         createUser,
@@ -99,7 +117,8 @@ const AuthProvider = ({ children }) => {
         logoutUser,
         loading,
         user,
-
+        theme,
+        toggleTheme
     }
     return (
         <AuthContext.Provider value={authData}>

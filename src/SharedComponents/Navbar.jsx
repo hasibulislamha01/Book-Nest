@@ -4,6 +4,11 @@ import { AuthContext } from "../Components/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import Drawer from "../Components/Drawer";
 
+const navRoutes = [
+    { title: 'Home', href: '/' },
+    { title: 'All Books', href: '/allBooks' },
+    { title: 'Add Books', href: '/addBooks' },
+]
 const Navbar = () => {
     const { user } = useContext(AuthContext)
     console.log('user image', user?.photoURL)
@@ -14,7 +19,7 @@ const Navbar = () => {
     const middleNav = document.getElementById('centerNav')
 
 
-    
+
     window.addEventListener('scroll',
         function () {
             if (window.pageYOffset >= middleNav.offsetTop) {
@@ -30,15 +35,21 @@ const Navbar = () => {
         }
     )
 
-    
+
 
 
     const navigationOptions =
         <>
-            <NavLink to='/' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>Home</NavLink>
-            <NavLink to='/allBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>All Books</NavLink>
-            <NavLink to='/addBooks' className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>Add Book</NavLink>
-            <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-violet-600' : 'text-gray-500'}>Borrowed Book</NavLink>
+            {
+                navRoutes?.map(route =>
+                    <NavLink key={route.href} 
+                    to={route.href} 
+                    className={({ isActive }) => isActive ? 'text-primary' : 'text-secondary'}>{route.title}</NavLink>
+
+                )
+            }
+            
+            <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-primary' : 'text-secondary'}>Borrowed Book</NavLink>
 
         </>
     return (
@@ -54,7 +65,7 @@ const Navbar = () => {
                             {navigationOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">BookNest</a>
+                    <a className="btn btn-ghost text-xl text-primary dark:text-yellow-400">BookNest</a>
                 </div>
                 <div id="centerNav" className="md:hidden navbar-center lg:flex dummy-class" >
                     <ul className="menu menu-horizontal px-1 text-lg font-medium space-x-5 hidden md:inline-flex" >

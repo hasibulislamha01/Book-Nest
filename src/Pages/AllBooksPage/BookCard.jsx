@@ -26,7 +26,7 @@ const BookCard = ({ book }) => {
                    <LoadingSkeleton/>
                     :
                     <Card
-                        className='antdCard'
+                        className='antdCard bg-lavender dark:bg-charcoal'
                         data-aos="fade-up" data-aos-duration="1000"
                         hoverable
                         // cover
@@ -45,7 +45,8 @@ const BookCard = ({ book }) => {
                                         fontSize: "1.3rem",
                                         wordWrap: "break-word"
                                     }
-                                }>
+                                }
+                                className='text-purple dark:text-lavender'>
                                 {book?.name}
                             </h2>
                             }

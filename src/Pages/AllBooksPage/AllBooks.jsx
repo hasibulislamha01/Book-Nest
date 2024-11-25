@@ -12,7 +12,7 @@ const AllBooks = () => {
     const [books, setBooks] = useState([])
     const [isGridMode, setGridMode] = useState(true)
     useEffect(() => {
-        axios('https://booknest-phi.vercel.app/books', {withCredentials: true})
+        axios('https://booknest-phi.vercel.app/books', { withCredentials: true })
             .then(response => {
                 // console.log(response)
                 setBooks(response?.data)
@@ -40,52 +40,55 @@ const AllBooks = () => {
 
 
     return (
-        <div className="container mx-auto py-20 mono">
-            <div className="mb-12 flex justify-between px-2 lg:px-6 gap-4">
-                <div className="flex gap-2 lg:gap-6">
-                    <FilterDropDown showFilteredData={showFilteredData} books={books}></FilterDropDown>
-                    <h1 className="text-center text-md lg:text-3xl">
-                        Showing
-                        <span className="mx-2">
+        <div className="min-h-screen bg-white dark:bg-neutral text-charcoal dark:text-white pt-20">
+            <div className="container mx-auto mono border-2 border-rose-500">
+                <div className="mb-12 flex justify-between px-2 lg:px-6 gap-4">
+                    <div className="flex gap-2 lg:gap-6">
+                        <FilterDropDown showFilteredData={showFilteredData} books={books}></FilterDropDown>
+                        <h1 className="text-center text-md lg:text-3xl">
+                            Showing
+                            <span className="mx-2">
+                                {
+                                    query === '' ? 'All'
+                                        : 'Available'
+                                }
+                            </span>
+                            Books
+                        </h1>
+                    </div>
+                    <div className="flex justify-end gap-8 text-xl">
+                        <p className={isGridMode ? 'hidden' : 'inline-flex'} onClick={displayGrid}><CiGrid41 /></p>
+                        <p className={isGridMode ? 'inline-flex' : 'hidden'} onClick={displayList}><CiBoxList /></p>
+                    </div>
+                </div>
+                <Toaster></Toaster>
+                {
+                    isGridMode ?
+                        <div id="gridContainer" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center justify-stretch">
+
                             {
-                                query === '' ? 'All'
-                                    : 'Available'
+                                books?.filter(book => {
+                                    return query === '' ? book : book?.quantity > 0
+                                }).map(book =>
+                                    <BookCard
+                                        key={book._id}
+                                        book={book}
+
+                                    ></BookCard>
+                                )
                             }
-                        </span>
-                        Books
-                    </h1>
-                </div>
-                <div className="flex justify-end gap-8 text-xl">
-                    <p className={isGridMode ? 'hidden' : 'inline-flex'} onClick={displayGrid}><CiGrid41 /></p>
-                    <p className={isGridMode ? 'inline-flex' : 'hidden'}  onClick={displayList}><CiBoxList /></p>
-                </div>
+                        </div>
+                        :
+                        <div id="listContainer" className="py-12">
+                            <BookList books={books}></BookList>
+                        </div>
+
+                }
+
+
             </div>
-            <Toaster></Toaster>
-            {
-                isGridMode ?
-                    <div id="gridContainer" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-
-                        {
-                            books?.filter(book => {
-                                return query === '' ? book : book?.quantity > 0
-                            }).map(book =>
-                                <BookCard
-                                    key={book._id}
-                                    book={book}
-
-                                ></BookCard>
-                            )
-                        }
-                    </div>
-                    :
-                    <div id="listContainer" className="py-12">
-                        <BookList books={books}></BookList>
-                    </div>
-
-            }
-
-
         </div>
+
     );
 };
 

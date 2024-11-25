@@ -44,7 +44,7 @@ const UpdateBook = () => {
 
     }
     return (
-        <div className="py-24 md:px-10 lg:px-60 update-bg">
+        <div className="min-h-screen py-24 md:px-10 lg:px-60 update-bg">
             <Toaster></Toaster>
             <h1 className="text-center text-3xl mb-8 text-white font-bold">Update Book</h1>
             <form onSubmit={handleUpdate} className="space-y-6">

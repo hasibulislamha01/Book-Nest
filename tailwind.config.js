@@ -9,9 +9,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#7c3aed",  //violate
+        light: {
+          primary: "#9E9EDE",
+          secondary: "#8CA472",
+          neutral: "#F4F4F5",
+        },
+        dark: {
+          primary: "#4B4B6A",
+          secondary: "#6A7452",
+          neutral: "#1E2329",
+        },
+        purple: "#7c3aed",  //violate
         olive: "#556B2F", //olive
-        secondary: "#4b5563"
+        neutral: "#1d2b3a",
+        violate: '#483D8B',
+        charcoal: '#1f2937',
+        offWhite: "#E1E2DB",
+        lavender: "#f5f3ff"
       },
     },
   },

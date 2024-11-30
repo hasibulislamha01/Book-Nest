@@ -153,7 +153,7 @@
 
 .container{
     padding: 1rem 3rem;
-    /* border: 1px solid lime; */
+    border: 1px solid lime;
 }
 
 
@@ -200,7 +200,7 @@
 
     .container{
         padding: 1rem 0.2rem;
-        /* border: 1px solid lime; */
+        border: 1px solid lime;
     }
     
 

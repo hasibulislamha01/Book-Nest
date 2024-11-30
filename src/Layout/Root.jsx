@@ -11,9 +11,11 @@ const Root = () => {
     }, []);
 
     return (
-        <div className="">
+        <div>
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className="bg-offWhite dark:bg-neutral min-h-screen">
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );

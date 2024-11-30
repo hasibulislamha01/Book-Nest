@@ -192,10 +192,10 @@ const NestedModal = ({ bookName, bookId, quantity, image, bookCategory }) => {
                             </label>
 
                             <div className="modal-action justify-center">
-                                <button type="submit" className={`btn bg-teal-400`}>Borrow</button>
+                                <button type="submit" className={`btn bg-purple border-none text-lavender`}>Borrow</button>
                                 <form method="dialog">
                                     {/* if there is a button in form, it will close the modal */}
-                                    <button onClick={handleClose} className="btn bg-red-400">Cancel</button>
+                                    <button onClick={handleClose} className="btn bg-red-500 border-none text-lavender">Cancel</button>
                                 </form>
                             </div>
                             <Toaster></Toaster>

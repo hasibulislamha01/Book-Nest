@@ -19,13 +19,14 @@ export default {
           secondary: "#6A7452",
           neutral: "#1E2329",
         },
-        purple: "#7c3aed",  //violate
+        purple: "#7c3aed",  //theme color
         olive: "#556B2F", //olive
-        neutral: "#1d2b3a",
+        neutral: "#1E2329",  //page background in dark theme
         violate: '#483D8B',
-        charcoal: '#1f2937',
+        charcoal: '#1f2937',  //good for footer and header
         offWhite: "#E1E2DB",
-        lavender: "#f5f3ff"
+        lavender: "#f5f3ff",
+        ash: "#2B3440"  //for card background
       },
     },
   },

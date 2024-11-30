@@ -1,6 +1,7 @@
 /* Navbar Container Styles */
 #navContainer {
     width: 100%; 
+    height: 56px;
     /* background-color: rgb(12, 94, 165); */
     transition: all 1s ease-in-out;
     /* border: 1px solid red; */
@@ -8,7 +9,7 @@
 
 .inner-container{
     width: 100%;
-    background-color: #b090e760;
+    /* background-color: #b090e760; */
     transition: all 1s ease-in-out;
     /* border: 2px solid lime; */
 }

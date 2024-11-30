@@ -18,6 +18,7 @@ import SameCategoryBooks from './Pages/ShowBookByCategory/SameCategoryBooks';
 import Details from './Pages/BookDetailsPage/Details';
 import UpdateProfile from './Pages/UserManagement/UpdateProfile';
 import BorrowedBooks from './Pages/BorrowedBooksPage/BorrowedBooks';
+import BookDetails from './Pages/BookDetailsPage/BookDetails';
 
 const router = createBrowserRouter([
   {
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`https://booknest-phi.vercel.app/books/${params.id}`),
         element:
           <ValidateUser>
-            <Details></Details>
+            <BookDetails />
           </ValidateUser>
       },
       {

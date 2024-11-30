@@ -18,25 +18,25 @@ const Navbar = () => {
     const { user } = useContext(AuthContext)
     console.log('user image', user?.photoURL)
 
-    const navbar = document.getElementById('navContainer')
-    const middleNav = document.getElementById('centerNav')
+    // const navbar = document.getElementById('navContainer')
+    // const middleNav = document.getElementById('centerNav')
 
 
 
-    window.addEventListener('scroll',
-        function () {
-            if (window.pageYOffset >= middleNav.offsetTop) {
-                navbar.classList.add("navSticky")
-                middleNav.classList.add('translateRight')
-            } else {
-                // rightNav.style.transition= '2s'
-                navbar.classList.remove('navSticky')
-                middleNav.classList.remove('translateRight')
+    // window.addEventListener('scroll',
+    //     function () {
+    //         if (window.pageYOffset >= middleNav.offsetTop) {
+    //             navbar.classList.add("navSticky")
+    //             middleNav.classList.add('translateRight')
+    //         } else {
+    //             // rightNav.style.transition= '2s'
+    //             navbar.classList.remove('navSticky')
+    //             middleNav.classList.remove('translateRight')
 
-            }
+    //         }
 
-        }
-    )
+    //     }
+    // )
 
 
 
@@ -47,17 +47,17 @@ const Navbar = () => {
                 navRoutes?.map(route =>
                     <NavLink key={route.href}
                         to={route.href}
-                        className={({ isActive }) => isActive ? 'text-primary' : 'text-secondary'}>{route.title}</NavLink>
+                        className={({ isActive }) => isActive ? 'text-white' : 'text-gray-300'}>{route.title}</NavLink>
 
                 )
             }
 
-            <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-primary' : 'text-secondary'}>Borrowed Book</NavLink>
+            <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-white' : 'text-gray-300'}>Borrowed Book</NavLink>
 
         </>
     return (
-        <div id="navContainer" className="w-full z-10 mono font-bold fixed top-0">
-            <div className="inner-container ">
+        <div id="navContainer" className="w-full z-10 mono font-bold fixed top-0 bg-purple">
+            <div className="inner-container">
                 <div className="navbar min-w-12  flex justify-between ">
 
                     <div id="leftNav" className="navbar-start w-[140px]">

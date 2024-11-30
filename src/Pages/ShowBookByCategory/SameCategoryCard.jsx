@@ -3,29 +3,34 @@ import { Card } from "antd";
 import Meta from "antd/es/card/Meta";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
+import PurpleButton from "../../Components/UI/PurpleButton";
 
 const SameCategoryCard = ({ book }) => {
     console.log(book)
     return (
         <Card
+            className="bg-lavender dark:bg-ash dark:border-ash shadow-xl pb-0"
             hoverable
             // cover
             style={{
                 width: 300,
             }}
-            cover={<img alt="example" src={book?.image} style={{ height: '300px', objectFit: 'cover' }} />}
+            cover={<img alt="book image" src={book?.image} style={{ height: '300px', objectFit: 'cover' }} />}
         >
             <Meta
-                title={<h2
-                    style={
-                        {
-                            textAlign: "center",
-                            fontSize: "1.3rem",
-                            wordWrap: "break-word"
-                        }
-                    }>
-                    {book?.name}
-                </h2>
+                className=""
+                title={
+                    <h2
+                        className="text-purple dark:text-offWhite"
+                        style={
+                            {
+                                textAlign: "center",
+                                fontSize: "1.3rem",
+                                wordWrap: "break-word"
+                            }
+                        }>
+                        {book?.name}
+                    </h2>
                 }
                 description={
                     <h3
@@ -44,17 +49,17 @@ const SameCategoryCard = ({ book }) => {
 
 
             />
-            <div className='text-center space-y-2'>
-                <div>
-                    <Rating name="read-only" value={book?.rating} readOnly size="small" />
-                </div>
+            <div className='text-center space-y-1'>
 
-                <p className='font-bold'>
-                    <span className='text-indigo-500 mr-2'>{book?.category}</span>
-                    by
-                    <span className='text-teal-500 ml-2'>{book?.author}</span>
-                </p>
-                <Link to={`/allBooks/${book?._id}`} className='btn btn-sm bg-sky-200'>Details</Link>
+                <Rating name="read-only" value={book?.rating} readOnly size="small" />
+
+                <p className='font-bold text-olive text-lg'>{book?.author}</p>
+
+                <Link to={`/allBooks/${book?._id}`} className="mt-2">
+                    <PurpleButton
+                        btnTxt={"Details"}
+                    ></PurpleButton>
+                </Link>
             </div>
         </Card>
     );

@@ -5,9 +5,11 @@ import { Toaster } from "react-hot-toast";
 import FilterDropDown from "./FilterDropDown";
 import BookList from "../../Components/BookList";
 import { CiBoxList, CiGrid41 } from "react-icons/ci";
+import LoadingSkeleton from "../../Components/Skeleton";
 
 
 const AllBooks = () => {
+    const [loading, setLoading] = useState(true)
     const [query, setQuery] = useState('')
     const [books, setBooks] = useState([])
     const [isGridMode, setGridMode] = useState(true)
@@ -16,6 +18,7 @@ const AllBooks = () => {
             .then(response => {
                 // console.log(response)
                 setBooks(response?.data)
+                setLoading(false)
             })
             .catch(error => {
                 console.error(error)
@@ -41,7 +44,7 @@ const AllBooks = () => {
 
     return (
         <div className="min-h-screen bg-white dark:bg-neutral text-charcoal dark:text-white pt-20">
-            <div className="container mx-auto mono border-2 border-rose-500">
+            <div className="container mx-auto  border-2 border-rose-500">
                 <div className="mb-12 flex justify-between px-2 lg:px-6 gap-4">
                     <div className="flex gap-2 lg:gap-6">
                         <FilterDropDown showFilteredData={showFilteredData} books={books}></FilterDropDown>
@@ -67,16 +70,23 @@ const AllBooks = () => {
                         <div id="gridContainer" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center justify-stretch">
 
                             {
-                                books?.filter(book => {
-                                    return query === '' ? book : book?.quantity > 0
-                                }).map(book =>
-                                    <BookCard
-                                        key={book._id}
-                                        book={book}
+                                !loading ?
 
-                                    ></BookCard>
-                                )
+                                    books?.filter(book => {
+                                        return query === '' ? book : book?.quantity > 0
+                                    }).map(book =>
+                                        <BookCard
+                                            key={book._id}
+                                            book={book}
+                                            loading={loading}
+                                        ></BookCard>
+                                    ) :
+                                    <LoadingSkeleton />
+
                             }
+
+
+
                         </div>
                         :
                         <div id="listContainer" className="py-12">

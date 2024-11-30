@@ -15,7 +15,6 @@ import UpdateBook from './Pages/UpdateBookPage/UpdateBook';
 import ValidateUser from './Pages/UserManagement/ValidateUser';
 import AddBooks from './Pages/AddBooksPage/AddBooks';
 import SameCategoryBooks from './Pages/ShowBookByCategory/SameCategoryBooks';
-import Details from './Pages/BookDetailsPage/Details';
 import UpdateProfile from './Pages/UserManagement/UpdateProfile';
 import BorrowedBooks from './Pages/BorrowedBooksPage/BorrowedBooks';
 import BookDetails from './Pages/BookDetailsPage/BookDetails';

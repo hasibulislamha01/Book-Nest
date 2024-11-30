@@ -3,19 +3,13 @@ import { Rating, } from '@mui/material';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
-import { useEffect, useState } from 'react';
 import LoadingSkeleton from '../../Components/Skeleton';
+import PurpleButton from '../../Components/UI/PurpleButton';
 const { Meta } = Card;
 
 
-const BookCard = ({ book }) => {
-    const [loading, setLoading] = useState(true)
-    useEffect(() => {
-        const delay = setTimeout(() => {
-            setLoading(false); 
-        }, 2000);
-        return () => clearTimeout(delay);
-    }, [])
+const BookCard = ({ book, loading }) => {
+
     // console.log(book)
     // Initialize AOS
     Aos.init();
@@ -23,10 +17,10 @@ const BookCard = ({ book }) => {
         <div>
             {
                 loading ?
-                   <LoadingSkeleton/>
+                    <LoadingSkeleton />
                     :
                     <Card
-                        className='antdCard bg-lavender dark:bg-charcoal'
+                        className='antdCard bg-lavender dark:bg-charcoal dark:border-charcoal'
                         data-aos="fade-up" data-aos-duration="1000"
                         hoverable
                         // cover
@@ -77,7 +71,9 @@ const BookCard = ({ book }) => {
                                 {/* by */}
                                 <span className='text-[#191970] ml-2'>{book?.author}</span>
                             </p>
-                            <Link to={`/allBooks/update/${book?._id}`} className='btn btn-sm bg-sky-200'>Update</Link>
+                            <Link to={`/allBooks/update/${book?._id}`} className='btn btn-sm bg-purple dark:bg-lavender text-lavender dark:text-purple border-none'>
+                               Details
+                            </Link>
                         </div>
                     </Card>
             }
@@ -86,7 +82,8 @@ const BookCard = ({ book }) => {
 };
 
 BookCard.propTypes = {
-    book: PropTypes.object
+    book: PropTypes.object,
+    loading: PropTypes.bool
 }
 
 export default BookCard;

@@ -62,7 +62,13 @@ const BookDetails = () => {
                 </div>
                 <p className="text-justify">{book?.description}</p>
                 <button className="btn bg-purple w-48 text-white rounded-lg border-none">
-                    <NestedModal />
+                    <NestedModal
+                        bookName={book?.name}
+                        bookCategory={book?.category}
+                        bookId={book?._id}
+                        image={book?.image}
+                        quantity={book?.quantity}
+                    />
                 </button>
             </div>
         </div>

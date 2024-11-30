@@ -6,12 +6,12 @@ import { AuthContext } from './AuthProvider';
 import { useContext } from "react";
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { ThemeProvider, Typography, createMuiTheme } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import toast, { Toaster } from 'react-hot-toast';
 // import PropTypes from 'prop-types'
 
 
-const theme = createMuiTheme({
+const theme = createTheme({
     typography: {
 
         fontFamily: "JetBrains Mono, monospace",

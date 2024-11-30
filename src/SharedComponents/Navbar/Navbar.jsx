@@ -47,16 +47,16 @@ const Navbar = () => {
                 navRoutes?.map(route =>
                     <NavLink key={route.href}
                         to={route.href}
-                        className={({ isActive }) => isActive ? 'text-white' : 'text-gray-300'}>{route.title}</NavLink>
+                        className={({ isActive }) => isActive ? 'text-white' : 'text-gray-400'}>{route.title}</NavLink>
 
                 )
             }
 
-            <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-white' : 'text-gray-300'}>Borrowed Book</NavLink>
+            <NavLink to={`/borrowedBooks/${user?.email}`} className={({ isActive }) => isActive ? 'text-white' : 'text-gray-400'}>Borrowed Book</NavLink>
 
         </>
     return (
-        <div id="navContainer" className="w-full z-10 mono font-bold fixed top-0 bg-purple">
+        <div id="navContainer" className="w-full z-10 mono font-bold fixed top-0 bg-purple dark:bg-charcoal">
             <div className="inner-container">
                 <div className="navbar min-w-12  flex justify-between ">
 
@@ -69,7 +69,7 @@ const Navbar = () => {
             {navigationOptions}
         </ul>
     </div> */}
-                        <a className="btn btn-ghost text-xl text-primary dark:text-yellow-400">BookNest</a>
+                        <a className="btn btn-ghost text-xl text-white dark:text-">BookNest</a>
                     </div>
 
                     <div id="centerNav" className="md:hidden navbar-center lg:flex dummy-class " >

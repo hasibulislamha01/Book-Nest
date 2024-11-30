@@ -4,7 +4,6 @@ import { Card } from 'antd';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
 import LoadingSkeleton from '../../Components/Skeleton';
-import PurpleButton from '../../Components/UI/PurpleButton';
 const { Meta } = Card;
 
 

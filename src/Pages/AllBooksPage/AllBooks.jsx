@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import FilterDropDown from "./FilterDropDown";
 import BookList from "../../Components/BookList";
 import { CiBoxList, CiGrid41 } from "react-icons/ci";
-import LoadingSkeleton from "../../Components/Skeleton";
+import BookCardSkeleton from "../../Components/UI/Skeleton/Skeleton";
 
 
 const AllBooks = () => {
@@ -44,7 +44,7 @@ const AllBooks = () => {
 
     return (
         <div className="min-h-screen bg-white dark:bg-neutral text-charcoal dark:text-white pt-20">
-            <div className="container mx-auto  border-2 border-rose-500">
+            <div className="container mx-auto">
                 <div className="mb-12 flex justify-between px-2 lg:px-6 gap-4">
                     <div className="flex gap-2 lg:gap-6">
                         <FilterDropDown showFilteredData={showFilteredData} books={books}></FilterDropDown>
@@ -67,7 +67,7 @@ const AllBooks = () => {
                 <Toaster></Toaster>
                 {
                     isGridMode ?
-                        <div id="gridContainer" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center justify-stretch">
+                        <div id="gridContainer" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-center justify-stretch">
 
                             {
                                 !loading ?
@@ -81,7 +81,14 @@ const AllBooks = () => {
                                             loading={loading}
                                         ></BookCard>
                                     ) :
-                                    <LoadingSkeleton />
+                                    <>
+                                        <BookCardSkeleton />
+                                        <BookCardSkeleton />
+                                        <BookCardSkeleton />
+                                        <BookCardSkeleton />
+                                        <BookCardSkeleton />
+                                        <BookCardSkeleton />
+                                    </>
 
                             }
 

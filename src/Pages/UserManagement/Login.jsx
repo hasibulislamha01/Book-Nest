@@ -94,7 +94,7 @@ const Login = () => {
 
 
     return (
-        <div className="min-h-screen px-0 md:px-16 lg:px-56 pt-20 bg-[#1d2b3a] w-full ">
+        <div className="min-h-screen px-0 md:px-16 lg:px-56 pt-20 bg-[#1d2b3a] w-full flex flex-col justify-center">
             <Toaster></Toaster>
             {
                 location?.state ?
@@ -135,7 +135,7 @@ const Login = () => {
                                 : <BsEyeSlash />
                         }
                     </span>
-                    <button type="submit" className="btn w-full mt-6 bg-[#34d399] border-transparent">Login</button>
+                    <button type="submit" className="btn w-full mt-6 bg-[#34d399] border-none text-neutral">Login</button>
                 </div>
             </form>
 

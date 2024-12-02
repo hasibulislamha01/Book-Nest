@@ -72,7 +72,7 @@ const Register = () => {
     }
 
     return (
-        <div className="pt-28 bg-[#1d2b3a] min-h-screen">
+        <div className="pt-28 bg-[#1d2b3a] min-h-screen flex flex-col justify-center">
             <Toaster></Toaster>
             <h1 className="text-center text-3xl mb-6 text-[#34d399]">Register Here</h1>
             <form className="space-y-4  px-2  md:px-16 lg:px-80" onSubmit={handleRegister}>
@@ -135,7 +135,11 @@ const Register = () => {
                         </span>
                     </div>
                 </div>
-                <button type="submit" className="btn btn-block mt-4 bg-[#34d399] border-transparent">Register</button>
+                <div className="mx-auto w-fit lg:w-full">
+
+                    <button type="submit" className="btn w-44 lg:btn-block mt-4 bg-[#34d399] border-transparent text-neutral hover:text-lavender transition-all duration-500">Register</button>
+
+                </div>
             </form>
             <div className="py-12">
                 <p className="mt-6 text-center text-white">Already have an account ?

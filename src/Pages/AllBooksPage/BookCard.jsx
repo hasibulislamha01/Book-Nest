@@ -3,7 +3,7 @@ import { Rating, } from '@mui/material';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
-import LoadingSkeleton from '../../Components/Skeleton';
+import BookCardSkeleton from '../../Components/UI/Skeleton/Skeleton';
 const { Meta } = Card;
 
 
@@ -16,7 +16,7 @@ const BookCard = ({ book, loading }) => {
         <div>
             {
                 loading ?
-                    <LoadingSkeleton />
+                    <BookCardSkeleton />
                     :
                     <Card
                         className='antdCard bg-lavender dark:bg-charcoal dark:border-charcoal'
@@ -24,10 +24,12 @@ const BookCard = ({ book, loading }) => {
                         hoverable
                         // cover
                         style={{
-                            width: 300,
+                            width: 250,
                             fontFamily: "IBM Plex Mono, monospace",
                         }}
-                        cover={<img alt="example" src={book?.image} style={{ height: '300px', objectFit: 'cover', }} />}
+                        cover={
+                        <img alt="book image" src={book?.image} style={{ height: '250px',  objectFit: 'cover', }} />
+                    }
                     >
                         <Meta
 
@@ -60,19 +62,19 @@ const BookCard = ({ book, loading }) => {
 
 
                         />
-                        <div data-aos="fade-up" data-aos-duration="2000" className='text-center space-y-2'>
-                            <div>
+                        <div data-aos="" data-aos-duration="2000" className='space-y-2'>
+                            {/* <div>
                                 <Rating name="read-only" value={book?.rating} readOnly size="small" />
-                            </div>
+                            </div> */}
 
-                            <p className='font-bold'>
-                                <span className='text-indigo-500 mr-2'>{book?.category}</span>
-                                {/* by */}
-                                <span className='text-[#191970] ml-2'>{book?.author}</span>
+                            <p className='text-center font-bold'>
+                                {/* <span className='text-indigo-500 mr-2'>{book?.category}</span>
+                                by */}
+                                <span className='text-olive ml-2'>{book?.author}</span>
                             </p>
-                            <Link to={`/allBooks/update/${book?._id}`} className='btn btn-sm bg-purple dark:bg-lavender text-lavender dark:text-purple border-none'>
+                            {/* <Link to={`/allBooks/update/${book?._id}`} className='btn btn-sm bg-purple dark:bg-lavender text-lavender dark:text-purple border-none'>
                                Details
-                            </Link>
+                            </Link> */}
                         </div>
                     </Card>
             }

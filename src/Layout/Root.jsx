@@ -1,18 +1,16 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../SharedComponents/Navbar/Navbar";
 import Footer from "../SharedComponents/Footer/Footer";
-import { useEffect } from "react";
+import MainNav from "../SharedComponents/Navbar/MainNav";
+// import ScrollToTop from "../Components/UI/ScrollToTop/ScrollToTop";
 // import { Footer } from "antd/es/layout/layout";
 
 const Root = () => {
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
     return (
         <div>
-            <Navbar></Navbar>
+            {/* <ScrollToTop/> */}
+            <MainNav/>
             <div className="bg-offWhite dark:bg-neutral min-h-screen">
                 <Outlet></Outlet>
             </div>

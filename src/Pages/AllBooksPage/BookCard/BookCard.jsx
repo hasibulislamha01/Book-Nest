@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types'
-import { Rating, } from '@mui/material';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
-import BookCardSkeleton from '../../Components/UI/Skeleton/Skeleton';
+import BookCardSkeleton from '../../../Components/UI/Skeleton/Skeleton';
+import './bookCard.css'
+
 const { Meta } = Card;
 
 
-const BookCard = ({ book, loading }) => {
+const BookCard = ({ book, loading, readSvg }) => {
 
     // console.log(book)
     // Initialize AOS
@@ -72,9 +73,9 @@ const BookCard = ({ book, loading }) => {
                                 by */}
                                 <span className='text-olive ml-2'>{book?.author}</span>
                             </p>
-                            {/* <Link to={`/allBooks/update/${book?._id}`} className='btn btn-sm bg-purple dark:bg-lavender text-lavender dark:text-purple border-none'>
-                               Details
-                            </Link> */}
+                            <Link to={`/allBooks/${book?._id}`} className='absolute right-[50%] top-[55%] transform translate-x-[50%] detailsBtn btn btn-sm p-1 rounded-full bg-lavender hover:bg-lavender hover:scale-105 border-none transition-all duration-500'>
+                               <img src={readSvg} alt="" />
+                            </Link>
                         </div>
                     </Card>
             }
@@ -84,7 +85,8 @@ const BookCard = ({ book, loading }) => {
 
 BookCard.propTypes = {
     book: PropTypes.object,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    readSvg: PropTypes.any
 }
 
 export default BookCard;

@@ -4,6 +4,7 @@ import { AuthContext } from "../../Components/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import Drawer from "../../Components/Drawer";
 import './Navbar.css'
+import SideNavBar from "./SideNavBar";
 
 
 const navRoutes = [
@@ -80,6 +81,7 @@ const Navbar = () => {
 
                     <div id="rightNav" className="navbar-end w-[90px] h-auto">
                         <Drawer></Drawer>
+                        <SideNavBar/>
                         <Toaster></Toaster>
                     </div>
                 </div>

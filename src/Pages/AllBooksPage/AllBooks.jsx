@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import BookCard from "./BookCard";
+import BookCard from "./BookCard/BookCard";
 import { Toaster } from "react-hot-toast";
 import FilterDropDown from "./FilterDropDown";
 import BookList from "../../Components/BookList";
 import { CiBoxList, CiGrid41 } from "react-icons/ci";
 import BookCardSkeleton from "../../Components/UI/Skeleton/Skeleton";
-
+import readSvg from '../../assets/readSvg.svg'
 
 const AllBooks = () => {
     const [loading, setLoading] = useState(true)
@@ -79,11 +79,10 @@ const AllBooks = () => {
                                             key={book._id}
                                             book={book}
                                             loading={loading}
+                                            readSvg={readSvg}
                                         ></BookCard>
                                     ) :
                                     <>
-                                        <BookCardSkeleton />
-                                        <BookCardSkeleton />
                                         <BookCardSkeleton />
                                         <BookCardSkeleton />
                                         <BookCardSkeleton />

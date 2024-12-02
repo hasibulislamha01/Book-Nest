@@ -7,7 +7,7 @@ import ExperimentModal from "./ExperimentModal";
 
 const BorrowModal = ({ bookName, bookId, quantity }) => {
     const { user } = useContext(AuthContext)
-    console.log(bookName, bookId, quantity)
+    console.log(bookName, typeof bookId, typeof quantity)
 
     const handleBorrow = event => {
         event.preventDefault()
@@ -113,7 +113,9 @@ const BorrowModal = ({ bookName, bookId, quantity }) => {
 };
 
 BorrowModal.propTypes = {
-    book: PropTypes.any
+    bookName: PropTypes.string,
+    bookId: PropTypes.string,
+    quantity: PropTypes.number
 }
 
 export default BorrowModal;

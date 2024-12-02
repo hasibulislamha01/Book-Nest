@@ -1,0 +1,23 @@
+.detailsBtn{
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+.antdCard:hover .detailsBtn{
+    opacity: 1;
+}
+
+@media screen and (max-width:600px) {
+    .antdCard {
+        width: 100%;
+        margin: 0 auto;
+        font-family: "IBM Plex Mono", monospace;
+    }
+}
+
+@media only screen and (max-width : 778px) {
+    .antdCard {
+        width: 100%;
+        margin: 0 auto;
+        font-family: "IBM Plex Mono", monospace;
+    }
+}

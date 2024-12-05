@@ -16,9 +16,9 @@ const BorrowedBooks = () => {
         )
     }
     return (
-        <div className="py-12 md:py-20 container mx-auto">
+        <div className="min-h-screen flex flex-col justify-center container mx-auto">
             <Toaster></Toaster>
-            <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="mt-14 md:mt-16 lg:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-5">
                 {
 
                     borrowedBooks.map(book =>

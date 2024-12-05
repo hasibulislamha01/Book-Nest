@@ -35,7 +35,7 @@ const MainNav = () => {
         sideNav.classList.add('flex')
     }
     return (
-        <nav id="navContainer" className="w-full z-10 mono font-bold fixed top-0 bg-purple dark:bg-charcoal">
+        <nav id="navContainer" className="w-full z-10 mono font-bold fixed top-0 bg-purple dark:bg-ash">
             <div className='container mx-auto'>
 
 

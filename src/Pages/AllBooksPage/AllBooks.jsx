@@ -31,8 +31,6 @@ const AllBooks = () => {
         setQuery(data)
     }
 
-    // js for toggle view
-
     const displayList = () => {
         setGridMode(false)
     }
@@ -43,12 +41,12 @@ const AllBooks = () => {
 
 
     return (
-        <div className="min-h-screen bg-white dark:bg-neutral text-charcoal dark:text-white pt-20">
+        <div className="min-h-screen bg-white dark:bg-neutral text-charcoal dark:text-white py-20">
             <div className="container mx-auto">
                 <div className="mb-12 flex justify-between px-2 lg:px-6 gap-4">
                     <div className="flex gap-2 lg:gap-6">
                         <FilterDropDown showFilteredData={showFilteredData} books={books}></FilterDropDown>
-                        <h1 className="text-center text-md lg:text-3xl">
+                        <h1 className="text-center text-md lg:text-xl">
                             Showing
                             <span className="mx-2">
                                 {
@@ -59,9 +57,16 @@ const AllBooks = () => {
                             Books
                         </h1>
                     </div>
-                    <div className="flex justify-end gap-8 text-xl">
-                        <p className={isGridMode ? 'hidden' : 'inline-flex'} onClick={displayGrid}><CiGrid41 /></p>
-                        <p className={isGridMode ? 'inline-flex' : 'hidden'} onClick={displayList}><CiBoxList /></p>
+                    <div className="flex items-center justify-center text-xl border border-purple/20 bg-lavender rounded-full shadow-2xl shadow-ash">
+
+                        <div className={`h-full w-12 cursor-pointer flex items-center justify-center rounded-l-full transition-all duration-200 ${isGridMode ? 'bg-purple/80 text-lavender' : ''}`} onClick={() => displayGrid()}>
+                            <CiGrid41 size={20} className="font-bold" />
+                        </div>
+
+                        <div className={`h-full w-12 cursor-pointer flex items-center justify-center rounded-r-full transition-all duration-200 ${isGridMode ? '' : 'bg-purple/80 text-lavender'}`} onClick={() => displayList()}>
+                            <CiBoxList size={20} />
+                        </div>
+
                     </div>
                 </div>
                 <Toaster></Toaster>

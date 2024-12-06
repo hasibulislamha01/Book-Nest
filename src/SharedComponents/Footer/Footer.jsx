@@ -43,7 +43,7 @@ const Footer = () => {
                     </nav>
 
                 </div>
-                <div className="bg-purple flex items-center jusity-center">
+                <div className="bg-purple dark:bg-ash flex items-center jusity-center">
                     {/* <hr className="border-b border-lavender/70 mx-3 lg:mx-6" /> */}
                     <h6 className="px-10 py-3 text-lavender/70">@ 2024 -- copyright</h6>
                 </div>

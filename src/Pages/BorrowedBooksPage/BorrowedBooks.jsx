@@ -9,9 +9,9 @@ const BorrowedBooks = () => {
     console.log(borrowedBooks)
     if (borrowedBooks.length === 0) {
         return (
-            <div className="pt-20">
+            <div className="py-20">
                 <EmptySvg></EmptySvg>
-                <h1 className="text-xl text-center my-12 text-[#34d399]">Currently you have no books borrowed</h1>
+                <h1 className="text-xl text-center my-12 text-purple dark:text-[#34d399]">Currently you have no books borrowed</h1>
             </div>
         )
     }
@@ -21,7 +21,7 @@ const BorrowedBooks = () => {
             <div className="mt-14 md:mt-16 lg:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-5">
                 {
 
-                    borrowedBooks.map(book =>
+                    borrowedBooks?.map(book =>
                         <BorrowedBooksCard
                             key={book?._id}
                             book={book}

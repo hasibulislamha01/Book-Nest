@@ -18,8 +18,13 @@ import SameCategoryBooks from './Pages/ShowBookByCategory/SameCategoryBooks';
 import UpdateProfile from './Pages/UserManagement/UpdateProfile';
 import BorrowedBooks from './Pages/BorrowedBooksPage/BorrowedBooks';
 import BookDetails from './Pages/BookDetailsPage/BookDetails';
+import NotFound from './Pages/NotFound/NotFound';
 
 const router = createBrowserRouter([
+  {
+    element: <Root />,
+    errorElement: <NotFound />
+  },
   {
     path: "/",
     element: <Root></Root>,

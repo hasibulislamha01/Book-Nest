@@ -1,72 +1,80 @@
-import { Rating } from "@mui/material";
 import { Card } from "antd";
 import Meta from "antd/es/card/Meta";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
-import PurpleButton from "../../Components/UI/PurpleButton";
+import readSvg from '../../assets/readSvg.svg'
+import BookCardSkeleton from "../../Components/UI/Skeleton/Skeleton";
 
-const SameCategoryCard = ({ book }) => {
+const SameCategoryCard = ({ book, loading }) => {
     console.log(book)
     return (
-        <Card
-            className="bg-lavender dark:bg-ash dark:border-ash shadow-xl pb-0"
-            hoverable
-            // cover
-            style={{
-                width: 300,
-            }}
-            cover={<img alt="book image" src={book?.image} style={{ height: '300px', objectFit: 'cover' }} />}
-        >
-            <Meta
-                className=""
-                title={
-                    <h2
-                        className="text-purple dark:text-offWhite"
-                        style={
-                            {
-                                textAlign: "center",
-                                fontSize: "1.3rem",
-                                wordWrap: "break-word"
-                            }
-                        }>
-                        {book?.name}
-                    </h2>
-                }
-                description={
-                    <h3
+        <div>
+            {
+                loading ?
+                    <BookCardSkeleton />
+                    :
+                    <Card
+                        className='antdCard bg-lavender dark:bg-charcoal dark:border-charcoal'
+
                         style={{
-                            textAlign: "center",
-                            fontSize: "1rem",
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "12px",
+                            width: 250,
+                            fontFamily: "IBM Plex Mono, monospace",
                         }}
+                        cover={
+                            <img alt="book image" src={book?.image} style={{ height: '250px', objectFit: 'cover', }} />
+                        }
                     >
+                        <Meta
 
-                    </h3>
-                }
+                            title={<h2
+                                style={
+                                    {
+                                        textAlign: "center",
+                                        fontSize: "1.3rem",
+                                        wordWrap: "break-word"
+                                    }
+                                }
+                                className='text-purple dark:text-lavender'>
+                                {book?.name}
+                            </h2>
+                            }
+                            description={
+                                <h3
+                                    style={{
+                                        textAlign: "center",
+                                        fontSize: "1rem",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "12px",
+                                    }}
+                                >
+
+                                </h3>
+                            }
 
 
 
-            />
-            <div className='text-center space-y-1'>
+                        />
+                        <div className='space-y-2'>
 
-                <Rating name="read-only" value={book?.rating} readOnly size="small" />
 
-                <p className='font-bold text-olive text-lg'>{book?.author}</p>
+                            <p className='text-center font-bold'>
 
-                <Link to={`/allBooks/${book?._id}`} className="mt-2">
-                    <PurpleButton
-                        btnTxt={"Details"}
-                    ></PurpleButton>
-                </Link>
-            </div>
-        </Card>
+                                <span className='text-olive ml-2'>{book?.author}</span>
+                            </p>
+                            <Link to={`/allBooks/${book?._id}`} className='absolute right-[50%] top-[55%] transform translate-x-[50%] detailsBtn btn btn-sm p-1 rounded-full bg-lavender hover:bg-lavender hover:scale-105 border-none transition-all duration-500'>
+                                <img src={readSvg} alt="" />
+                            </Link>
+                        </div>
+                    </Card>
+            }
+        </div>
     );
 };
 
 SameCategoryCard.propTypes = {
-    book: PropTypes.object
+    book: PropTypes.object,
+    loading: PropTypes.bool
 }
 
 export default SameCategoryCard;

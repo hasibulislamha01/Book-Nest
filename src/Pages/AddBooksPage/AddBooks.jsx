@@ -34,14 +34,14 @@ const AddBooks = () => {
         // adding the book to backend
         const url = 'https://booknest-phi.vercel.app/books'
         axios.post(url, bookData)
-        .then(response=>{
-            console.log(response.data)
-            toast.success('New Book Added')
-            navigate('/books')
-        })
-        .catch(error=>{
-            console.error(error)
-        })
+            .then(response => {
+                console.log(response.data)
+                toast.success('New Book Added')
+                navigate('/books')
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
     return (
         <div className="w-full py-24 bg-[#1d2b3a] lg:px-60 bg-Style">
@@ -106,7 +106,9 @@ const AddBooks = () => {
                     ></textarea>
                     <span className="label">Add a paragraph for sample readings</span>
                 </div>
-                <button type="submit" className="btn btn-block bg-[#6ee7b7]">Add Book</button>
+                <div className="mx-auto w-[60%] lg:w-full">
+                    <button type="submit" className="btn btn-block bg-[#6ee7b7] border-none text-neutral hover:text-lavender">Add Book</button>
+                </div>
             </form>
         </div>
     );

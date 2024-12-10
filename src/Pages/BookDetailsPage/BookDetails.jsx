@@ -6,6 +6,7 @@ import NestedModal from "../../Components/MuiNestedModal";
 
 const BookDetails = () => {
     const detailsRef = useRef(null);
+    const bookRef = useRef(null);
     const [showSample, setShowSample] = useState(false)
     const [book] = useLoaderData()
     console.log(book);
@@ -25,15 +26,38 @@ const BookDetails = () => {
         }, 100);
     }
 
+    const scrollToBookSection = () => {
+        // Scroll back to the main section
+        setTimeout(() => {
+            if (bookRef.current) {
+                const elementTop = bookRef.current.getBoundingClientRect().top; // Get the position of the section
+                const offset = window.innerHeight / 4; // Desired offset (center of screen)
+                window.scrollBy({
+                    top: elementTop - offset, // Adjust scroll to center the section
+                    behavior: 'smooth', // Smooth scroll
+                });
+            }
+        }, 100);
+    }
+
     const handleShowSample = () => {
         setShowSample(true)
         scrollToShowSampleSection()
     }
 
+    const handleHideSample = () => {
+        setShowSample(false)
+        scrollToBookSection()
+    }
+
     return (
         <div className="min-h-screen py-12 md:py-20 lg:py-32 px-1 md:px-2 lg:px-0 container mx-auto text-black dark:text-offWhite spacey-6 md:space-y-10">
 
-            <div className=" p-6 lg:p-12 bg-white dark:bg-ash flex flex-col md:flex-row items-center justify-evenly gap-4  shadow-xl rounded-lg">
+
+            {/* book details displaly section*/}
+            <div
+                ref={bookRef}
+                className=" p-6 lg:p-12 bg-white dark:bg-ash flex flex-col md:flex-row items-center justify-evenly gap-4  shadow-xl rounded-lg">
 
                 {/* image container */}
                 <div className="">
@@ -78,7 +102,7 @@ const BookDetails = () => {
                 <div className="flex items-center justify-between">
                     <h1 className="text-purple text-2xl font-bold">{book?.name} </h1>
                     <button className="btn btn-sm rounded-full bg-lavender border-none text-red-400"
-                        onClick={() => { setShowSample(false) }}
+                        onClick={handleHideSample}
                     >Close</button>
                 </div>
                 <p className="text-justify">{book?.description}</p>
